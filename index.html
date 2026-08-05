@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Neuro Handbook — On-Call Reference</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="pager-bar">
+  <div class="pager-bar-inner">
+    <button class="drawer-toggle" id="drawerToggle" aria-label="Open menu">&#9776;</button>
+    <a href="index.html" class="pager-brand"><strong>NEURO</strong> <span class="full">HANDBOOK</span></a>
+    <div class="pager-screen">
+      <input id="pagerSearch" type="text" placeholder="jump to a topic… (e.g. 'seizure')" autocomplete="off">
+      <span class="pager-cursor"></span>
+    </div>
+  </div>
+</header>
+
+<div class="app-shell">
+  <div class="drawer-scrim" id="drawerScrim"></div>
+  <nav class="sidebar" id="sidebarMount"></nav>
+
+  <div class="main-content">
+    <main class="wrap">
+      <p class="eyebrow">Resident-run reference · Neurology Residency Program</p>
+      <h1 class="page-title">Neuro Handbook</h1>
+      <p class="subtitle">Built by residents, for residents — on-call pathways today, growing into a full clinical reference over time. Not a replacement for institutional protocols or your attending's judgment.</p>
+      <p class="hb-stats">1 active section · 4 topics · growing</p>
+
+      <div class="section-grid">
+        <a class="section-card" href="protocols/status-epilepticus.html">
+          <div class="sc-icon">&#9889;</div>
+          <p class="sc-name">Neuro On-Call</p>
+          <p class="sc-count">4 topics</p>
+        </a>
+        <div class="section-card is-planned">
+          <div class="sc-icon">&#129504;</div>
+          <p class="sc-name">Epilepsy</p>
+          <p class="sc-count">coming soon</p>
+        </div>
+        <div class="section-card is-planned">
+          <div class="sc-icon">&#129656;</div>
+          <p class="sc-name">Stroke</p>
+          <p class="sc-count">coming soon</p>
+        </div>
+        <div class="section-card is-planned">
+          <div class="sc-icon">&#128170;</div>
+          <p class="sc-name">Neuromuscular</p>
+          <p class="sc-count">coming soon</p>
+        </div>
+        <div class="section-card is-planned">
+          <div class="sc-icon">&#129301;</div>
+          <p class="sc-name">Headache</p>
+          <p class="sc-count">coming soon</p>
+        </div>
+        <div class="section-card is-planned">
+          <div class="sc-icon">&#127973;</div>
+          <p class="sc-name">Neurocritical Care</p>
+          <p class="sc-count">coming soon</p>
+        </div>
+        <div class="section-card is-planned">
+          <div class="sc-icon">&#129516;</div>
+          <p class="sc-name">Neuroimmunology</p>
+          <p class="sc-count">coming soon</p>
+        </div>
+        <div class="section-card is-planned">
+          <div class="sc-icon">&#128269;</div>
+          <p class="sc-name">Neuro Exam</p>
+          <p class="sc-count">coming soon</p>
+        </div>
+      </div>
+
+      <footer class="site-footer">
+        Content reflects general practice patterns and published guidelines at the time of writing — always confirm doses, thresholds, and pathways against your institution's current protocols. See <a href="CONTRIBUTING.md">CONTRIBUTING.md</a> for how to add a new topic.
+      </footer>
+    </main>
+  </div>
+</div>
+
+<script>window.SITE_ROOT = "";</script>
+<script src="nav-data.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
