@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Acute Ischemic Stroke — Neuro On-Call</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<header class="pager-bar">
+  <div class="pager-bar-inner">
+    <button class="drawer-toggle" id="drawerToggle" aria-label="Open menu">&#9776;</button>
+    <a href="../index.html" class="pager-brand"><strong>NEURO</strong> <span class="full">HANDBOOK</span></a>
+    <div class="pager-screen">
+      <input id="pagerSearch" type="text" placeholder="jump to a topic…" autocomplete="off">
+      <span class="pager-cursor"></span>
+    </div>
+  </div>
+</header>
+
+<div class="app-shell">
+  <div class="drawer-scrim" id="drawerScrim"></div>
+  <nav class="sidebar" id="sidebarMount"></nav>
+  <div class="main-content">
+<main class="wrap">
+  <a href="../index.html" class="back-link">&larr; handbook home</a>
+  <p class="eyebrow">Emergency</p>
+  <h1 class="page-title">Acute Ischemic Stroke</h1>
+  <p class="subtitle">Code Stroke workflow. Last known well (LKW) time drives every decision that follows — get it precisely, and get it before you do anything else.</p>
+
+  <div class="protocol-meta">
+    <span class="pill stat">Time-critical</span>
+    <span class="pill">Confirm LKW time first</span>
+  </div>
+
+  <div class="block">
+    <div class="block-head"><span class="block-num">01</span><h2 class="block-title">At the bedside</h2></div>
+    <ul>
+      <li>NIHSS immediately. ABCs, fingerstick glucose (hypoglycemia is a stroke mimic — treat and reassess before committing to the stroke pathway).</li>
+      <li>Confirm exact last known well time — call family/witnesses if needed. "Found down" patients get a wake-up-stroke workup, not an automatic exclusion.</li>
+      <li>Weight (for dosing), two IVs, stat non-contrast head CT + CTA head/neck.</li>
+    </ul>
+  </div>
+
+  <div class="block">
+    <div class="block-head"><span class="block-num">02</span><h2 class="block-title">IV thrombolysis window</h2></div>
+    <ul>
+      <li><strong>0–4.5h from LKW:</strong> check the exclusion checklist (recent surgery/bleed, anticoagulation status, BP, platelet count, glucose) and treat if eligible — don't wait on labs you don't need (e.g. INR if no history of anticoagulant use or liver disease).</li>
+      <li><span class="dose">Alteplase 0.9 mg/kg</span> (max 90 mg): 10% bolus over 1 min, remainder over 60 min — OR <span class="dose">tenecteplase 0.25 mg/kg</span> (max 25 mg) single bolus, per institutional preference.</li>
+      <li>BP must be <span class="dose">&lt;185/110</span> before lytic and <span class="dose">&lt;180/105</span> for 24h after.</li>
+      <li><strong>4.5–24h (or unknown onset):</strong> consider based on perfusion imaging (CT or MRI perfusion mismatch) — this is an extended-window decision, loop in your attending/stroke team before proceeding.</li>
+    </ul>
+    <div class="pearl">
+      <strong>Pearl</strong>
+      Don't let a "soft" contraindication (mild symptoms, rapidly improving deficit) automatically take lytics off the table — a disabling deficit can still warrant treatment even if it's improving. This is a discussion, not an automatic exclusion.
+    </div>
+  </div>
+
+  <div class="block">
+    <div class="block-head"><span class="block-num">03</span><h2 class="block-title">Large vessel occlusion → thrombectomy</h2></div>
+    <ul>
+      <li>CTA showing LVO (ICA, M1, proximal M2, basilar) with a disabling deficit → activate the thrombectomy pathway/call IR-neurointervention immediately, in parallel with (not after) lytic administration.</li>
+      <li>Thrombectomy window extends out to 24h from LKW in appropriately selected patients with favorable perfusion imaging — LKW beyond 4.5h is not itself an exclusion for this pathway.</li>
+    </ul>
+  </div>
+
+  <div class="block">
+    <div class="block-head"><span class="block-num">04</span><h2 class="block-title">Post-treatment / not a candidate</h2></div>
+    <ul>
+      <li>Post-lytic: neuro checks + BP checks per your unit's frequency protocol, hold antiplatelets/anticoagulants for 24h, repeat CT at 24h before starting them.</li>
+      <li>Not a lytic/thrombectomy candidate: permissive hypertension (don't treat BP acutely unless very high or another indication) and start antiplatelet therapy per your unit's timing once hemorrhage is excluded.</li>
+      <li>Workup in parallel: telemetry, echo, lipid panel, HbA1c, carotid imaging — find the mechanism regardless of the acute treatment path taken.</li>
+    </ul>
+    <div class="callattending">
+      <strong>Call your attending immediately</strong>
+      Any potential LVO, any lytic-eligible patient, or any neurologic decline after treatment (think symptomatic hemorrhagic transformation — stop the infusion if still running, stat non-contrast CT, coags, consider cryoprecipitate/reversal per protocol).
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    General reference only — confirm doses and pathway against your institution's current protocol. <a href="../index.html">&larr; Back to all protocols</a>
+  </footer>
+</main>
+
+  </div>
+</div>
+
+<script>window.SITE_ROOT = "../";</script>
+<script src="../nav-data.js"></script>
+<script src="../script.js"></script>
+</body>
+</html>
