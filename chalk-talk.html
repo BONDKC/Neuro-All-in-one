@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What's the Lecture — NeuroBureau</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="pager-bar">
+  <div class="pager-bar-inner">
+    <button class="drawer-toggle" id="drawerToggle" aria-label="Open menu">&#9776;</button>
+    <a href="index.html" class="pager-brand"><strong>NEUROBUREAU</strong></a>
+    <div class="pager-screen">
+      <input id="pagerSearch" type="text" placeholder="Search…" autocomplete="off">
+      <span class="pager-cursor"></span>
+    </div>
+  </div>
+</header>
+
+<div class="app-shell">
+  <div class="drawer-scrim" id="drawerScrim"></div>
+  <nav class="sidebar" id="sidebarMount"></nav>
+
+  <div class="main-content">
+    <main class="wrap">
+      <a href="index.html" class="back-link">&larr; NeuroBureau home</a>
+      <p class="eyebrow">Today's lecture</p>
+      <h1 class="page-title">What's the Lecture</h1>
+      <p class="subtitle">What's on the schedule today. Updated monthly from the lecture calendar.</p>
+
+      <div id="lectureContent"></div>
+
+      <footer class="site-footer">
+        Lecture data is manually updated each month — see <a href="CONTRIBUTING.md">CONTRIBUTING.md</a>. Recurring standing lectures (weekly Case Conf, Grand Rounds, etc.) aren't listed here individually — only each day's specific topics and speakers.
+      </footer>
+    </main>
+  </div>
+</div>
+
+<script>window.SITE_ROOT = "";</script>
+<script src="nav-data.js"></script>
+<script src="lecture-data.js"></script>
+<script src="script.js"></script>
+<script>
+(function () {
+  function isoDate(d) {
+    return d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0");
+  }
+  var iso = isoDate(new Date());
+  var entry = (window.LECTURE_SCHEDULE || []).find(function (e) { return e.date === iso; });
+  var el = document.getElementById("lectureContent");
+
+  if (entry && entry.items.length) {
+    var html = '<ul class="lecture-list">';
+    entry.items.forEach(function (item) { html += '<li class="lecture-item">' + item + "</li>"; });
+    html += "</ul>";
+    el.innerHTML = html;
+  } else {
+    el.innerHTML = '<p class="lecture-empty">No lecture listed for today.</p>';
+  }
+})();
+</script>
+</body>
+</html>
