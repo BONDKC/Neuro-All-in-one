@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Who's On Call — NeuroBureau</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="pager-bar">
+  <div class="pager-bar-inner">
+    <button class="drawer-toggle" id="drawerToggle" aria-label="Open menu">&#9776;</button>
+    <a href="index.html" class="pager-brand"><strong>NEUROBUREAU</strong></a>
+    <div class="pager-screen">
+      <input id="pagerSearch" type="text" placeholder="Search…" autocomplete="off">
+      <span class="pager-cursor"></span>
+    </div>
+  </div>
+</header>
+
+<div class="app-shell">
+  <div class="drawer-scrim" id="drawerScrim"></div>
+  <nav class="sidebar" id="sidebarMount"></nav>
+
+  <div class="main-content">
+    <main class="wrap">
+      <a href="index.html" class="back-link">&larr; NeuroBureau home</a>
+      <p class="eyebrow">Live schedule</p>
+      <h1 class="page-title">Who's On Call</h1>
+      <p class="subtitle">Pulled live from the resident schedule. Attending schedule updates monthly.</p>
+
+      <div id="oncallStatus" class="oncall-loading">Loading today's schedule…</div>
+      <div id="oncallContent"></div>
+
+      <footer class="site-footer">
+        Resident data reads live from the shared schedule sheet. Attending data is manually updated each month — see <a href="CONTRIBUTING.md">CONTRIBUTING.md</a>. If anything here looks wrong, verify against the source schedule before acting on it.
+      </footer>
+    </main>
+  </div>
+</div>
+
+<script>window.SITE_ROOT = "";</script>
+<script src="nav-data.js"></script>
+<script src="attending-data.js"></script>
+<script src="script.js"></script>
+<script>
+(function () {
+  var RESIDENT_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSt43MuosQk47hCkVYxA1ApYgbWRuC_NszbcXrvFRG4ZLsTEeeQY005Geoa2bC5qDgs3pz6ih4BAqWf/pub?output=csv";
+  var RESIDENTS = ["Horn-Barbosa","Gopalkrishnan","Kolsrud","Johnson","Raichur","Hey","Bonda","Magadia","Mian","Goel","Schweitzer","Stojiljkovic","Harrison","Loiola","Avdeeva","Curl","Abraham","Soriano","Amrit","Rutledge","Voelker-Dunbar"];
+
+  function parseCSV(text) {
+    return text.split("\n").map(function (line) {
+      // simple split; source data has no embedded commas/quotes
+      return line.split(",").map(function (c) { return c.trim(); });
+    });
+  }
+
+  function findRowByDate(rows, dateStr) {
+    for (var i = 0; i < rows.length; i++) {
+      if (rows[i][1] === dateStr) return rows[i];
+    }
+    return null;
+  }
+
+  function isoDate(d) {
+    return d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0");
+  }
+
+  function findRangeMatch(list, iso) {
+    for (var i = 0; i < list.length; i++) {
+      if (iso >= list[i].start && iso <= list[i].end) return list[i];
+    }
+    return null;
+  }
+
+  function findDayMatch(list, iso) {
+    for (var i = 0; i < list.length; i++) {
+      if (list[i].date === iso) return list[i];
+    }
+    return null;
+  }
+
+  function computeOnCall(rows) {
+    var now = new Date();
+    var dow = now.getDay(); // 0 Sun ... 6 Sat
+    var hour = now.getHours();
+    var dateStr = (now.getMonth() + 1) + "/" + now.getDate();
+    var iso = isoDate(now);
+    var row = findRowByDate(rows, dateStr);
+
+    var result = { uoflResident: null, uoflService: null, jewishResident: null, uoflNightFloat: null, jewishNightFloat: null, dateStr: dateStr, foundRow: !!row };
+    if (!row) return result;
+
+    var residentCols = row.slice(2, 23);
+
+    if (dow >= 1 && dow <= 5) {
+      residentCols.forEach(function (val, i) {
+        if (val === "General +C" || val === "Stroke +C") {
+          result.uoflResident = RESIDENTS[i];
+          result.uoflService = val.indexOf("General") === 0 ? "General" : "Stroke";
+        }
+        if (val === "Jewish" || val === "Jewish +C") result.jewishResident = RESIDENTS[i];
+        if (val === "UNF") result.uoflNightFloat = RESIDENTS[i];
+        if (val === "JNF") result.jewishNightFloat = RESIDENTS[i];
+      });
+    } else if (dow === 6) {
+      residentCols.forEach(function (val, i) {
+        if (hour < 19 && val === "SatAM") result.uoflResident = RESIDENTS[i];
+        if (hour >= 19 && val === "SatPM") result.uoflResident = RESIDENTS[i];
+        if (val === "JH24") result.jewishResident = RESIDENTS[i];
+      });
+    } else if (dow === 0) {
+      var prev = new Date(now); prev.setDate(prev.getDate() - 1);
+      var prevDateStr = (prev.getMonth() + 1) + "/" + prev.getDate();
+      var prevRow = findRowByDate(rows, prevDateStr);
+
+      residentCols.forEach(function (val, i) {
+        if (hour >= 11 && val === "SunAM") result.uoflResident = RESIDENTS[i];
+        if (hour >= 7 && val === "JHSun") result.jewishResident = RESIDENTS[i];
+      });
+      if (hour < 11 && prevRow) {
+        prevRow.slice(2, 23).forEach(function (val, i) { if (val === "SatPM") result.uoflResident = RESIDENTS[i]; });
+      }
+      if (hour < 7 && prevRow) {
+        prevRow.slice(2, 23).forEach(function (val, i) { if (val === "JH24") result.jewishResident = RESIDENTS[i]; });
+      }
+    }
+    return result;
+  }
+
+  function roleRow(label, value, phone) {
+    var missing = !value;
+    return '<div class="oncall-role"><span class="oncall-role-label">' + label + '</span>' +
+      '<span class="oncall-role-value' + (missing ? " missing" : "") + '">' + (value || "—") +
+      (phone ? '<span class="oncall-role-phone">' + phone + "</span>" : "") + "</span></div>";
+  }
+
+  function render(oncall) {
+    var iso = isoDate(new Date());
+    var att = window.ATTENDING_SCHEDULE || {};
+    var gen = findRangeMatch(att.ulhGeneral || [], iso);
+    var stroke = findDayMatch(att.ulhStroke || [], iso);
+    var jew = findDayMatch(att.jewish || [], iso);
+    var iv = findRangeMatch(att.interventional || [], iso);
+
+    var strokeAtt = stroke ? (stroke.am === stroke.pm ? stroke.am : "AM: " + stroke.am + " / PM: " + stroke.pm) : null;
+    var strokePhone = stroke ? stroke.phone : null;
+    var jewAtt = jew ? (jew.am === jew.pm ? jew.am : "AM: " + jew.am + " / PM: " + jew.pm) : null;
+    var jewPhone = jew ? jew.phone : null;
+
+    var html = '<div class="oncall-updated">Showing ' + oncall.dateStr + ' · updates live</div>';
+    html += '<div class="oncall-grid">';
+
+    html += '<div class="oncall-site"><p class="oncall-site-title">&#9889; UofL</p>';
+    html += roleRow("On-call resident", oncall.uoflResident ? oncall.uoflResident + (oncall.uoflService ? " (" + oncall.uoflService + ")" : "") : null);
+    html += roleRow("General attending", gen ? gen.name : null, gen ? gen.phone : null);
+    html += roleRow("Stroke attending", strokeAtt, strokePhone);
+    html += roleRow("Night float", oncall.uoflNightFloat);
+    html += "</div>";
+
+    html += '<div class="oncall-site"><p class="oncall-site-title">&#127973; Jewish Hospital</p>';
+    html += roleRow("On-call resident", oncall.jewishResident);
+    html += roleRow("Attending", jewAtt, jewPhone);
+    html += roleRow("Night float", oncall.jewishNightFloat);
+    html += "</div>";
+
+    html += '<div class="oncall-site"><p class="oncall-site-title">&#127919; Interventional</p>';
+    html += roleRow("Attending", iv ? iv.name : null, iv ? iv.phone : null);
+    html += roleRow("Backup", iv ? iv.backup : null);
+    html += "</div>";
+
+    html += "</div>";
+
+    document.getElementById("oncallContent").innerHTML = html;
+    document.getElementById("oncallStatus").style.display = "none";
+  }
+
+  fetch(RESIDENT_CSV_URL)
+    .then(function (r) {
+      if (!r.ok) throw new Error("fetch failed: " + r.status);
+      return r.text();
+    })
+    .then(function (text) {
+      var rows = parseCSV(text);
+      var oncall = computeOnCall(rows);
+      if (!oncall.foundRow) {
+        document.getElementById("oncallStatus").className = "oncall-error";
+        document.getElementById("oncallStatus").textContent = "Couldn't find today (" + oncall.dateStr + ") in the schedule sheet.";
+        return;
+      }
+      render(oncall);
+    })
+    .catch(function (err) {
+      document.getElementById("oncallStatus").className = "oncall-error";
+      document.getElementById("oncallStatus").textContent = "Couldn't load the schedule — " + err.message;
+    });
+})();
+</script>
+</body>
+</html>
