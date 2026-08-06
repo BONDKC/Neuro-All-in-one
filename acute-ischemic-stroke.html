@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Code Stroke — NeuroBureau</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<header class="pager-bar">
+  <div class="pager-bar-inner">
+    <button class="drawer-toggle" id="drawerToggle" aria-label="Open menu">&#9776;</button>
+    <a href="../index.html" class="pager-brand"><strong>NEUROBUREAU</strong></a>
+    <div class="pager-screen">
+      <input id="pagerSearch" type="text" placeholder="Search…" autocomplete="off">
+      <span class="pager-cursor"></span>
+    </div>
+  </div>
+</header>
+
+<div class="app-shell">
+  <div class="drawer-scrim" id="drawerScrim"></div>
+  <nav class="sidebar" id="sidebarMount"></nav>
+
+  <div class="main-content">
+    <main class="wrap">
+      <a href="../index.html" class="back-link">&larr; NeuroBureau home</a>
+      <p class="eyebrow">Emergency</p>
+      <h1 class="page-title">Code Stroke</h1>
+      <p class="subtitle">Phone call to disposition. Images are click-to-expand and intentional &mdash; nothing decorative, only things that answer a specific question.</p>
+
+      <div class="protocol-meta">
+        <span class="pill stat">Time-critical</span>
+        <span class="pill">Confirm last known well first</span>
+      </div>
+
+      <!-- ============ PHONE RINGS ============ -->
+      <div class="block">
+        <div class="block-head"><h2 class="block-title">&#128222; Stroke phone rings</h2></div>
+        <ul class="checklist">
+          <li>Get last known well (LKW) time immediately &mdash; ask directly, don't assume "found down" means unwitnessed.</li>
+          <li>Ask where the patient is now and their current NIHSS-relevant status (talking, moving all four limbs?) so you know what you're walking into.</li>
+          <li>Confirm which hospital/ED bed.</li>
+        </ul>
+        <div class="doc-block">
+          <div class="doc-field"><span class="dl">Time called</span><span class="fill">&nbsp;</span></div>
+        </div>
+      </div>
+
+      <!-- ============ ON THE WAY ============ -->
+      <div class="block">
+        <div class="block-head"><h2 class="block-title">&#127939; On the way to the patient</h2></div>
+        <ul class="checklist">
+          <li>Mentally confirm the LKW-to-now window &mdash; are you inside the 4.5h IV lytic window, the 24h thrombectomy window, or outside both?</li>
+          <li>Think through exclusions you'll need to ask about on arrival: anticoagulation use, recent surgery/bleed, seizure at onset.</li>
+          <li>Does this sound like a <strong>Possible Code LVO</strong>? If so, activate it &mdash; call the Access Center: <strong>502-562-8008</strong> (same number for both hospitals).</li>
+        </ul>
+      </div>
+
+      <!-- ============ AT THE BEDSIDE ============ -->
+      <div class="block">
+        <div class="block-head"><h2 class="block-title">&#127973; At the bedside</h2></div>
+        <ul class="checklist">
+          <li>ABCs, fingerstick glucose first &mdash; hypoglycemia is a stroke mimic and needs correcting before you commit further down the stroke pathway.</li>
+          <li>Weight (for lytic dosing), two IVs.</li>
+          <li>Confirm LKW time again directly with patient/family/witnesses if possible &mdash; the phone report isn't always precise.</li>
+        </ul>
+      </div>
+
+      <!-- ============ FOCUSED NEURO ASSESSMENT ============ -->
+      <div class="section-label" id="neuro-assessment">Focused Neurological Assessment</div>
+
+      <div class="expand-item">
+        <button class="expand-toggle" onclick="toggleExpand(this)">
+          <span class="exp-icon">&#129504;</span>
+          <span class="exp-star">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span class="exp-label">NIHSS sheet</span>
+          <span class="exp-plus">+</span>
+        </button>
+        <div class="expand-content">
+          <table class="nihss-table">
+            <tr><th>Item</th><th>Tests</th><th>Score range</th></tr>
+            <tr><td>1a</td><td>Level of consciousness</td><td class="num">0&#8211;3</td></tr>
+            <tr><td>1b</td><td>LOC questions (month, age)</td><td class="num">0&#8211;2</td></tr>
+            <tr><td>1c</td><td>LOC commands (open/close eyes, grip/release)</td><td class="num">0&#8211;2</td></tr>
+            <tr><td>2</td><td>Best gaze</td><td class="num">0&#8211;2</td></tr>
+            <tr><td>3</td><td>Visual fields</td><td class="num">0&#8211;3</td></tr>
+            <tr><td>4</td><td>Facial palsy</td><td class="num">0&#8211;3</td></tr>
+            <tr><td>5a/5b</td><td>Motor arm, left/right</td><td class="num">0&#8211;4 each</td></tr>
+            <tr><td>6a/6b</td><td>Motor leg, left/right</td><td class="num">0&#8211;4 each</td></tr>
+            <tr><td>7</td><td>Limb ataxia</td><td class="num">0&#8211;2</td></tr>
+            <tr><td>8</td><td>Sensory</td><td class="num">0&#8211;2</td></tr>
+            <tr><td>9</td><td>Best language</td><td class="num">0&#8211;3</td></tr>
+            <tr><td>10</td><td>Dysarthria</td><td class="num">0&#8211;2</td></tr>
+            <tr><td>11</td><td>Extinction / inattention</td><td class="num">0&#8211;2</td></tr>
+          </table>
+          <p class="ts" style="color:var(--muted); margin-top:10px;">Max score 42. Public domain, NIH/NINDS. Swap in your institution's official printable sheet here if you'd rather use that image directly.</p>
+        </div>
+      </div>
+
+      <div class="expand-item">
+        <button class="expand-toggle" onclick="toggleExpand(this)">
+          <span class="exp-icon">&#129504;</span>
+          <span class="exp-star">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span class="exp-label">Cortical signs quick reference</span>
+          <span class="exp-plus">+</span>
+        </button>
+        <div class="expand-content">
+          <div id="svg-cortical"></div>
+        </div>
+      </div>
+
+      <div class="expand-item">
+        <button class="expand-toggle" onclick="toggleExpand(this)">
+          <span class="exp-icon">&#129504;</span>
+          <span class="exp-star">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span class="exp-label">Localization reference</span>
+          <span class="exp-plus">+</span>
+        </button>
+        <div class="expand-content">
+          <div id="svg-localization"></div>
+          <p style="margin-top:14px;"><strong>General rule:</strong> crossed/alternating signs (cranial nerve deficit on one side, long-tract deficit on the other) point to a brainstem lesion. Cortical signs — aphasia, neglect, gaze preference, cortical visual loss — point to a supratentorial lesion.</p>
+          <ul>
+            <li><strong>MCA:</strong> face and arm weakness/sensory loss &gt; leg. Dominant hemisphere &rarr; aphasia. Non-dominant &rarr; neglect. Gaze preference toward the lesion. Contralateral homonymous hemianopia.</li>
+            <li><strong>ACA:</strong> leg weakness/sensory loss &gt; face/arm. Abulia, urinary incontinence, grasp reflex, gait apraxia.</li>
+            <li><strong>PCA:</strong> contralateral homonymous hemianopia, often with macular sparing. Visual agnosia. Dominant-side occipital + splenial involvement can cause alexia without agraphia (can write, can't read).</li>
+            <li><strong>Lacunar/subcortical:</strong> pure motor hemiparesis, pure sensory stroke, ataxic hemiparesis, or dysarthria-clumsy hand — notably <strong>without</strong> aphasia, neglect, or cortical visual signs.</li>
+            <li><strong>Midbrain (CN III):</strong> ipsilateral CN III palsy with contralateral hemiparesis (Weber) or contralateral ataxia/tremor (Benedikt/Claude).</li>
+            <li><strong>Pons (CN VI/VII, gaze):</strong> ipsilateral facial palsy &plusmn; CN VI palsy with contralateral hemiparesis (Millard-Gubler), or ipsilateral horizontal gaze palsy with facial palsy and contralateral hemiparesis (Foville). Locked-in syndrome: awake, quadriplegic, anarthric, with preserved vertical eye movements/blinking.</li>
+            <li><strong>Lateral medulla / PICA (Wallenberg):</strong> dysphagia, hoarseness, vertigo/nystagmus, ipsilateral ataxia, ipsilateral Horner syndrome, ipsilateral facial pain/temp loss, contralateral body pain/temp loss.</li>
+            <li><strong>Medial medulla:</strong> ipsilateral tongue deviation (CN XII), contralateral hemiparesis, contralateral loss of vibration/proprioception.</li>
+          </ul>
+          <div class="pearl">
+            <strong>Pearl</strong>
+            Not every brainstem stroke shows a textbook crossed pattern — localize fast off the pattern that fits best, then confirm with urgent neuroimaging rather than waiting for a perfect match.
+          </div>
+        </div>
+      </div>
+
+      <div class="expand-item">
+        <button class="expand-toggle" onclick="toggleExpand(this)">
+          <span class="exp-icon">&#128203;</span>
+          <span class="exp-label">CSTAT score</span>
+          <span class="exp-plus">+</span>
+        </button>
+        <div class="expand-content">
+          <p><strong>Cincinnati Stroke Triage Assessment Tool (C-STAT)</strong> &mdash; used to help identify large vessel occlusion:</p>
+          <ul>
+            <li><strong>2 points:</strong> conjugate gaze deviation (&ge;1 on the relevant NIHSS item)</li>
+            <li><strong>1 point:</strong> cannot provide their age or current month <em>and</em> can't follow one of 2 commands (eye closure, opening/closing hand)</li>
+            <li><strong>1 point:</strong> cannot hold either arm up for 10 seconds before it falls to the bed</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="expand-item">
+        <button class="expand-toggle" onclick="toggleExpand(this)">
+          <span class="exp-icon">&#9878;&#65039;</span>
+          <span class="exp-star">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span class="exp-label">Disabling vs. non-disabling deficits</span>
+          <span class="exp-plus">+</span>
+        </button>
+        <div class="expand-content">
+          <p>For NIHSS 0&#8211;5 at presentation: if the observed deficits persisted, would the patient still be able to do basic activities of daily living and/or return to work?</p>
+          <p class="ts" style="color:var(--muted);">ADLs to consider (BATHE): <strong>B</strong>athing/dressing, <strong>A</strong>mbulating, <strong>T</strong>oileting, <strong>H</strong>ygiene, <strong>E</strong>ating &mdash; also assess independent swallow. This is a judgment call made with the patient and family, not a rigid cutoff.</p>
+          <ul>
+            <li><strong>Typically clearly disabling:</strong> complete hemianopia (&ge;2 on NIHSS vision item); severe aphasia (&ge;2 on best language item); severe hemi-attention/extinction affecting &gt;1 modality (&ge;2 on extinction/inattention item); any weakness that can't sustain effort against gravity (&ge;2 on a motor item).</li>
+            <li><strong>May NOT be clearly disabling in a given patient:</strong> isolated mild aphasia (still able to communicate meaningfully); isolated facial droop; mild cortical hand weakness (especially non-dominant, NIHSS 0); mild hemimotor or hemisensory loss; mild hemiataxia (can still ambulate).</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- ============ IMAGING ============ -->
+      <div class="section-label" id="imaging">Imaging</div>
+
+      <p class="ts" style="color:var(--muted); margin-bottom:14px;">CT Head</p>
+      <div class="doc-block">
+        <div class="doc-field"><span class="dl">CT wet read</span><span class="fill">&nbsp;</span></div>
+      </div>
+
+      <div class="expand-item">
+        <button class="expand-toggle" onclick="toggleExpand(this)">
+          <span class="exp-icon">&#127909;</span>
+          <span class="exp-label">Normal CT (baseline)</span>
+          <span class="exp-plus">+</span>
+        </button>
+        <div class="expand-content"><p class="expand-pending">Awaiting your teaching image.</p></div>
+      </div>
+
+      <div class="expand-item">
+        <button class="expand-toggle" onclick="toggleExpand(this)">
+          <span class="exp-icon">&#127909;</span>
+          <span class="exp-star">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span class="exp-label">Intracranial hemorrhage</span>
+          <span class="exp-plus">+</span>
+        </button>
+        <div class="expand-content"><p class="expand-pending">Awaiting your teaching image.</p></div>
+      </div>
+
+      <div class="expand-item">
+        <button class="expand-toggle" onclick="toggleExpand(this)">
+          <span class="exp-icon">&#127909;</span>
+          <span class="exp-star">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span class="exp-label">Hyperdense MCA sign</span>
+          <span class="exp-plus">+</span>
+        </button>
+        <div class="expand-content"><p class="expand-pending">Awaiting your teaching image.</p></div>
+      </div>
+
+      <div class="expand-item">
+        <button class="expand-toggle" onclick="toggleExpand(this)">
+          <span class="exp-icon">&#127909;</span>
+          <span class="exp-star">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span class="exp-label">Early hypodensity (loss of gray-white differentiation)</span>
+          <span class="exp-plus">+</span>
+        </button>
+        <div class="expand-content"><p class="expand-pending">Awaiting your teaching image.</p></div>
+      </div>
+
+      <div class="expand-item">
+        <button class="expand-toggle" onclick="toggleExpand(this)">
+          <span class="exp-icon">&#127909;</span>
+          <span class="exp-star">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span class="exp-label">ASPECTS regions</span>
+          <span class="exp-plus">+</span>
+        </button>
+        <div class="expand-content"><div id="svg-aspects"></div></div>
+      </div>
+
+      <div class="expand-item">
+        <button class="expand-toggle" onclick="toggleExpand(this)">
+          <span class="exp-icon">&#127909;</span>
+          <span class="exp-label">Eye deviation on CT</span>
+          <span class="exp-plus">+</span>
+        </button>
+        <div class="expand-content"><p class="expand-pending">Awaiting your teaching image (optional).</p></div>
+      </div>
+
+      <p class="ts" style="color:var(--muted); margin:20px 0 14px;">CTA</p>
+
+      <div class="expand-item">
+        <button class="expand-toggle" onclick="toggleExpand(this)">
+          <span class="exp-icon">&#127909;</span>
+          <span class="exp-label">Normal CTA</span>
+          <span class="exp-plus">+</span>
+        </button>
+        <div class="expand-content"><p class="expand-pending">Awaiting your teaching image.</p></div>
+      </div>
+
+      <div class="expand-item">
+        <button class="expand-toggle" onclick="toggleExpand(this)">
+          <span class="exp-icon">&#127909;</span>
+          <span class="exp-star">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span class="exp-label">M1 occlusion</span>
+          <span class="exp-plus">+</span>
+        </button>
+        <div class="expand-content"><p class="expand-pending">Awaiting your teaching image.</p></div>
+      </div>
+
+      <div class="expand-item">
+        <button class="expand-toggle" onclick="toggleExpand(this)">
+          <span class="exp-icon">&#127909;</span>
+          <span class="exp-label">ICA occlusion</span>
+          <span class="exp-plus">+</span>
+        </button>
+        <div class="expand-content"><p class="expand-pending">Awaiting your teaching image.</p></div>
+      </div>
+
+      <div class="expand-item">
+        <button class="expand-toggle" onclick="toggleExpand(this)">
+          <span class="exp-icon">&#127909;</span>
+          <span class="exp-label">Basilar occlusion</span>
+          <span class="exp-plus">+</span>
+        </button>
+        <div class="expand-content"><p class="expand-pending">Awaiting your teaching image.</p></div>
+      </div>
+
+      <div class="expand-item">
+        <button class="expand-toggle" onclick="toggleExpand(this)">
+          <span class="exp-icon">&#127909;</span>
+          <span class="exp-label">Tandem lesion (optional)</span>
+          <span class="exp-plus">+</span>
+        </button>
+        <div class="expand-content"><p class="expand-pending">Awaiting your teaching image (optional).</p></div>
+      </div>
+
+      <div class="expand-item">
+        <button class="expand-toggle" onclick="toggleExpand(this)">
+          <span class="exp-icon">&#128187;</span>
+          <span class="exp-star">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span class="exp-label">RapidAI screenshot</span>
+          <span class="exp-plus">+</span>
+        </button>
+        <div class="expand-content"><p class="expand-pending">Awaiting your screenshot.</p></div>
+      </div>
+
+      <p class="ts" style="color:var(--muted); margin:20px 0 14px;">CT Perfusion</p>
+
+      <div class="expand-item">
+        <button class="expand-toggle" onclick="toggleExpand(this)">
+          <span class="exp-icon">&#127909;</span>
+          <span class="exp-label">Normal perfusion</span>
+          <span class="exp-plus">+</span>
+        </button>
+        <div class="expand-content"><p class="expand-pending">Awaiting your teaching image.</p></div>
+      </div>
+
+      <div class="expand-item">
+        <button class="expand-toggle" onclick="toggleExpand(this)">
+          <span class="exp-icon">&#127909;</span>
+          <span class="exp-star">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span class="exp-label">Core vs. penumbra (one annotated image)</span>
+          <span class="exp-plus">+</span>
+        </button>
+        <div class="expand-content"><p class="expand-pending">Awaiting your annotated teaching image.</p></div>
+      </div>
+
+      <!-- ============ REPERFUSION DECISION ============ -->
+      <div class="section-label" id="reperfusion">Reperfusion Decision</div>
+
+      <div class="expand-item">
+        <button class="expand-toggle" onclick="toggleExpand(this)">
+          <span class="exp-icon">&#128203;</span>
+          <span class="exp-star">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span class="exp-label">TNK inclusion criteria</span>
+          <span class="exp-plus">+</span>
+        </button>
+        <div class="expand-content">
+          <ul>
+            <li>Symptoms consistent with disabling ischemic stroke</li>
+            <li>Treatment can begin &le;4.5 hours from last known normal</li>
+            <li>Age &ge; 18 years</li>
+            <li>Wake-up/unknown onset with DWI+/FLAIR&minus; mismatch, if MRI is available</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="expand-item">
+        <button class="expand-toggle" onclick="toggleExpand(this)">
+          <span class="exp-icon">&#128203;</span>
+          <span class="exp-star">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span class="exp-label">TNK exclusion criteria</span>
+          <span class="exp-plus">+</span>
+        </button>
+        <div class="expand-content">
+          <ul>
+            <li>Intracranial hemorrhage or SAH on CT</li>
+            <li>Extensive hypodensity &gt;1/3 MCA territory</li>
+            <li>BP &gt;185/110 despite treatment</li>
+            <li>Ischemic stroke &lt;3 months</li>
+            <li>Prior intracranial hemorrhage</li>
+            <li>Severe head trauma &lt;3 months</li>
+            <li>Active internal bleeding or suspected aortic dissection</li>
+            <li>Intracranial or spinal surgery &lt;3 months</li>
+            <li>Infective endocarditis</li>
+            <li>GI bleed &lt;21 days, or GI malignancy</li>
+            <li>Blood glucose &lt;50 mg/dL (reassess after correction)</li>
+            <li>Platelets &lt;100,000</li>
+            <li>INR &gt;1.7</li>
+            <li>PT &gt;15 sec / aPTT &gt;40 sec</li>
+            <li>Full-dose LMWH &lt;24 hours</li>
+            <li>DOAC within 48 hours (if normal renal function)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="expand-item">
+        <button class="expand-toggle" onclick="toggleExpand(this)">
+          <span class="exp-icon">&#128203;</span>
+          <span class="exp-star">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span class="exp-label">Mechanical thrombectomy criteria</span>
+          <span class="exp-plus">+</span>
+        </button>
+        <div class="expand-content">
+          <ul>
+            <li>Large vessel occlusion (ICA, M1, proximal M2, basilar) on CTA</li>
+            <li>Disabling deficit</li>
+            <li>LKW &le; 24 hours with favorable perfusion imaging beyond 6 hours</li>
+            <li>Reasonable pre-stroke functional status</li>
+          </ul>
+          <p class="ts" style="color:var(--muted);">Swap in your institution's exact criteria sheet/screenshot here if preferred.</p>
+        </div>
+      </div>
+
+      <div class="expand-item">
+        <button class="expand-toggle" onclick="toggleExpand(this)">
+          <span class="exp-icon">&#128337;</span>
+          <span class="exp-label">Wake-up stroke algorithm (optional)</span>
+          <span class="exp-plus">+</span>
+        </button>
+        <div class="expand-content"><p class="expand-pending">Optional &mdash; send over your institution's algorithm if you want it included.</p></div>
+      </div>
+
+      <!-- ============ AFTER THE DECISION ============ -->
+      <div class="section-label" id="after-decision">After the Decision</div>
+
+      <div class="block">
+        <div class="block-head"><h2 class="block-title">If TNK administered</h2></div>
+        <ul class="checklist">
+          <li>No written consent required.</li>
+          <li>Discuss risks and benefits with patient/family.</li>
+          <li>Admit under Stroke, Critical Care level of care.</li>
+          <li>Stroke order set.</li>
+        </ul>
+      </div>
+
+      <div class="block">
+        <div class="block-head"><h2 class="block-title">If mechanical thrombectomy</h2></div>
+        <ul class="checklist">
+          <li>Bed slip under Stroke/Critical Care.</li>
+          <li>Notify NEA.</li>
+          <li>Stroke order set.</li>
+        </ul>
+      </div>
+
+      <div class="expand-item">
+        <button class="expand-toggle" onclick="toggleExpand(this)">
+          <span class="exp-icon">&#128181;</span>
+          <span class="exp-star">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span class="exp-label">Stroke order set (Cerner)</span>
+          <span class="exp-plus">+</span>
+        </button>
+        <div class="expand-content"><p class="expand-pending">Awaiting your Cerner screenshot &mdash; this is the one you said matters most, send it whenever you're ready.</p></div>
+      </div>
+
+      <div class="expand-item">
+        <button class="expand-toggle" onclick="toggleExpand(this)">
+          <span class="exp-icon">&#128181;</span>
+          <span class="exp-label">Admission bed request (optional)</span>
+          <span class="exp-plus">+</span>
+        </button>
+        <div class="expand-content"><p class="expand-pending">Optional &mdash; send it over if you want it included.</p></div>
+      </div>
+
+      <footer class="site-footer">
+        General reference only &mdash; confirm doses, criteria, and pathway against your institution's current protocol. Imaging examples pending &mdash; see marked slots above. <a href="../index.html">&larr; Back to all protocols</a>
+      </footer>
+    </main>
+  </div>
+</div>
+
+<script>window.SITE_ROOT = "../";</script>
+<script src="../nav-data.js"></script>
+<script src="../script.js"></script>
+<script src="../code-stroke-diagrams.js"></script>
+</body>
+</html>

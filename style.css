@@ -639,3 +639,94 @@ code, .dose {
   color: var(--faint);
   padding: 10px 0;
 }
+
+/* ============================================================
+   EXPAND-ON-CLICK — collapsed-by-default image/content slots
+   ============================================================ */
+
+.expand-item {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  margin: 10px 0;
+  overflow: hidden;
+}
+.expand-toggle {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--panel);
+  border: none;
+  padding: 12px 16px;
+  cursor: pointer;
+  font-family: var(--sans);
+  font-size: 14.5px;
+  color: var(--paper);
+  text-align: left;
+}
+.expand-toggle:hover { background: var(--panel-raised); }
+.expand-toggle .exp-icon { font-size: 15px; flex-shrink: 0; }
+.expand-toggle .exp-label { flex: 1; }
+.expand-toggle .exp-star { color: var(--pearl-amber); font-size: 12px; margin-right: 4px; }
+.expand-toggle .exp-plus {
+  font-family: var(--mono);
+  font-size: 15px;
+  color: var(--faint);
+  flex-shrink: 0;
+  width: 18px;
+  text-align: center;
+}
+.expand-item.open .exp-plus { color: var(--pager-green); }
+.expand-content {
+  display: none;
+  padding: 14px 16px 16px;
+  border-top: 1px solid var(--line);
+}
+.expand-item.open .expand-content { display: block; }
+.expand-pending {
+  font-family: var(--mono);
+  font-size: 12.5px;
+  color: var(--faint);
+  font-style: italic;
+}
+
+.nihss-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.nihss-table th, .nihss-table td { text-align: left; padding: 6px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+.nihss-table th { color: var(--faint); font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.04em; }
+.nihss-table td.num { font-family: var(--mono); color: var(--pager-green); white-space: nowrap; }
+
+/* ============================================================
+   CHECKLIST — actionable workflow steps, checkbox style
+   ============================================================ */
+
+.checklist { list-style: none; margin: 0; padding: 0; }
+.checklist li {
+  position: relative;
+  padding-left: 26px;
+  margin-bottom: 10px;
+  font-size: 14.5px;
+}
+.checklist li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 2px;
+  width: 15px;
+  height: 15px;
+  border: 1.5px solid var(--muted);
+  border-radius: 3px;
+}
+
+.doc-block {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 12px 14px;
+  margin: 14px 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.doc-field { font-size: 13px; }
+.doc-field span.dl { color: var(--faint); font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.04em; display: block; margin-bottom: 3px; }
+.doc-field .fill { display: inline-block; min-width: 90px; border-bottom: 1px dashed var(--line); color: var(--pager-green); font-family: var(--mono); }
