@@ -53,6 +53,18 @@ window.NAV_SECTIONS = [
       { name: "ED Systems", url: "tips-and-tricks.html#ed-systems", tag: "" }
     ]
   },
+  {
+    name: "EMG Workbook",
+    icon: "\uD83E\uDDE0",
+    status: "active",
+    topics: [
+      { name: "NCS Fundamentals", url: "emg-workbook.html#ncs-fundamentals", tag: "" },
+      { name: "EMG Fundamentals", url: "emg-workbook.html#emg-fundamentals", tag: "" },
+      { name: "Podcast", url: "emg-workbook.html#podcast", tag: "" },
+      { name: "Practical Cases", url: "emg-workbook.html#practical-cases", tag: "" },
+      { name: "Qbank", url: "emg-workbook.html#qbank", tag: "" }
+    ]
+  },
   { name: "Epilepsy", icon: "\uD83E\uDDE0", status: "planned", topics: [] },
   { name: "Stroke", icon: "\uD83E\uDE78", status: "planned", topics: [] },
   { name: "Neuromuscular", icon: "\uD83D\uDCAA", status: "planned", topics: [] },

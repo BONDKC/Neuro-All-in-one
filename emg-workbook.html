@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EMG Workbook — NeuroBureau</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="pager-bar">
+  <div class="pager-bar-inner">
+    <button class="drawer-toggle" id="drawerToggle" aria-label="Open menu">&#9776;</button>
+    <a href="index.html" class="pager-brand"><strong>NEUROBUREAU</strong></a>
+    <div class="pager-screen">
+      <input id="pagerSearch" type="text" placeholder="Search…" autocomplete="off">
+      <span class="pager-cursor"></span>
+    </div>
+  </div>
+</header>
+
+<div class="app-shell">
+  <div class="drawer-scrim" id="drawerScrim"></div>
+  <nav class="sidebar" id="sidebarMount"></nav>
+
+  <div class="main-content">
+    <main class="wrap">
+      <a href="index.html" class="back-link">&larr; NeuroBureau home</a>
+      <p class="eyebrow">Electrodiagnostics</p>
+      <h1 class="page-title">EMG Workbook</h1>
+      <p class="subtitle">Nerve conduction and EMG fundamentals, plus a growing set of practical resources. Jump to a section from the sidebar, or scroll.</p>
+
+      <!-- ============ NCS FUNDAMENTALS ============ -->
+      <div class="section-label" id="ncs-fundamentals" style="border-top:none; padding-top:0;">EMG Basics — Nerve Conduction Studies</div>
+
+      <div class="block">
+        <div class="block-head"><h2 class="block-title">Recording principles</h2></div>
+        <ul>
+          <li><strong>Volume conduction:</strong> what's actually being recorded is an intracellular action potential transmitted through skin/tissue to the surface electrode.</li>
+          <li>CMAP, SNAP, MUAP, and needle EMG signals are all essentially volume-conducted <strong>near-field potentials</strong> — they produce a triphasic waveform as an advancing action potential approaches, passes beneath, then moves away from the recording electrode.</li>
+          <li>As the AP travels toward the electrode: initial positive phase, then a negative phase — the transition point is where onset latency is measured.</li>
+        </ul>
+        <div class="img-card">
+          <p class="file-title">Unipolar vs bipolar near-field recording</p>
+          <div id="svg-triphasic"></div>
+        </div>
+        <div class="pearl">
+          <strong>Pearl</strong>
+          Large myelinated fibers are what's actually measured in clinical NCS. Sensory studies record the largest, fastest cutaneous nerves (A&#946; fibers). The very largest/fastest PNS fibers overall — muscle spindle afferents (Aa/Ia) — are only captured during mixed nerve studies, not standard motor or sensory studies alone.
+        </div>
+      </div>
+
+      <div class="block">
+        <div class="block-head"><h2 class="block-title">Motor conduction studies</h2></div>
+        <ul>
+          <li>Gain: 2&#8211;5 mV. Duration: usually 200 ms.</li>
+          <li>Normal nerves need 20&#8211;50 mA for supramaximal stimulation, increased in 5&#8211;10 mA increments.</li>
+          <li><strong>CMAP</strong> reflects conduction along the motor nerve, the NMJ, and the muscle fibers themselves — motor responses (mV range) are much less affected by technical noise than sensory/mixed responses (&#956;V range).</li>
+        </ul>
+        <div class="img-card">
+          <p class="file-title">Belly-tendon montage</p>
+          <div id="svg-montage"></div>
+        </div>
+        <ul>
+          <li><strong>G1 (active):</strong> center of the muscle belly, over the motor endplate.</li>
+          <li><strong>G2 (reference):</strong> distally, over the tendon.</li>
+          <li><strong>Stimulator:</strong> over the supplying nerve, cathode closest to G1.</li>
+        </ul>
+        <div class="img-card">
+          <p class="file-title">CMAP measurement landmarks</p>
+          <div id="svg-cmap"></div>
+        </div>
+        <ul>
+          <li><strong>Latency:</strong> stimulus to initial CMAP deflection — nerve conduction time to the NMJ, delay across the NMJ, and depolarization time across the muscle, all combined.</li>
+          <li><strong>Amplitude:</strong> baseline to negative peak (less commonly first negative peak to next positive) — reflects the number of muscle fibers depolarizing.</li>
+          <li><strong>Duration:</strong> initial deflection to first baseline crossing.</li>
+          <li><strong>Area:</strong> above baseline to the negative peak — comparing area between proximal and distal stimulation sites is how conduction block gets identified.</li>
+          <li><strong>Conduction velocity</strong> = distance between proximal and distal stimulation sites &divide; (proximal latency &minus; distal latency), measured by tape measure. Normal: &gt;50 m/s in the upper extremity, &gt;40 m/s in the lower extremity.</li>
+        </ul>
+      </div>
+
+      <div class="block">
+        <div class="block-head"><h2 class="block-title">Sensory conduction studies</h2></div>
+        <ul>
+          <li>Gain: 10&#8211;20 &#956;V. Pulse: 100&#8211;200 ms duration. Current: 5&#8211;30 mA for supramaximal stimulation, increased in 3&#8211;5 mA increments.</li>
+          <li><strong>G1 (active):</strong> closest to the stimulator. <strong>G2 (reference):</strong> 2.5&#8211;4 cm from G1.</li>
+          <li><strong>Antidromic</strong> (stimulating toward the sensory receptor) is generally preferred over <strong>orthodromic</strong> — higher amplitude, since recording electrodes sit closer to the nerve.</li>
+        </ul>
+        <div class="img-card">
+          <p class="file-title">SNAP measurement landmarks</p>
+          <div id="svg-snap"></div>
+        </div>
+        <ul>
+          <li><strong>Onset latency:</strong> stimulus to initial negative deflection — nerve conduction time to the recording electrodes for the largest cutaneous sensory fibers.</li>
+          <li><strong>Peak latency:</strong> stimulus to the midpoint of the first negative peak — can be obscured by noise or stimulus artifact.</li>
+          <li><strong>SNAP amplitude:</strong> baseline to negative peak. A low SNAP is a definite marker of PNS disorder.</li>
+          <li><strong>Duration:</strong> initial deflection to first baseline crossing.</li>
+        </ul>
+      </div>
+
+      <div class="block">
+        <div class="block-head"><h2 class="block-title">Mixed conduction studies</h2></div>
+        <ul>
+          <li>Most often used for median neuropathy at the wrist, ulnar neuropathy at the elbow, and tibial neuropathy across the tarsal tunnel.</li>
+          <li>Gain: 10&#8211;20 &#956;V. G1/G2 in line over the mixed nerve, 2.5&#8211;4 cm apart, active G1 closest to the stimulator.</li>
+          <li><strong>MNAP</strong> (mixed nerve action potential): the compound potential representing summation of all sensory and motor fiber APs — this is the only setting in which the largest PNS fibers (Ia, from muscle spindles) actually get recorded.</li>
+        </ul>
+      </div>
+
+      <div class="block">
+        <div class="block-head"><h2 class="block-title">NCS reference — common sites by nerve and root</h2></div>
+        <p><strong>Lower limb, motor:</strong> Peroneal &rarr; extensor digitorum brevis (L5&#8211;S1); Tibial &rarr; abductor hallucis (S1); Peroneal &rarr; tibialis anterior (L5); Tibial &rarr; abductor digiti quinti pedis (S1); Tibial &rarr; gastrocnemii (S1); Femoral &rarr; quadriceps (L3&#8211;L4).</p>
+        <p><strong>Lower limb, sensory:</strong> Sural &rarr; lateral ankle (S1); Superficial peroneal &rarr; dorsum of ankle (L5); Saphenous &rarr; medial ankle (L4); Lateral femoral cutaneous &rarr; lateral thigh (L3&#8211;L4).</p>
+        <p><strong>Upper limb, motor:</strong> Median &rarr; thenar (C8&#8211;T1); Ulnar &rarr; hypothenar (C8&#8211;T1); Ulnar &rarr; 1st dorsal interosseous (C8, T1); Radial &rarr; extensor indicis proprius (C8); Radial &rarr; brachioradialis (C5&#8211;C6); Musculocutaneous &rarr; biceps (C5&#8211;C6); Axillary &rarr; deltoid (C5&#8211;C6).</p>
+        <p><strong>Upper limb, sensory:</strong> Median &rarr; index (C6&#8211;C7); Ulnar &rarr; fifth digit (C8); Median &rarr; thumb (C6); Median &rarr; middle finger (C7); Ulnar &rarr; hand dorsum (C8); Radial &rarr; thumb base (C6&#8211;C7); Lateral antebrachial cutaneous &rarr; forearm (C6); Medial antebrachial cutaneous &rarr; forearm (T1).</p>
+      </div>
+
+      <div class="block">
+        <div class="block-head"><h2 class="block-title">Late responses</h2></div>
+        <ul>
+          <li><strong>H-reflex:</strong> the electrophysiologic correlate of the Achilles tendon reflex. Obtained by stimulating the tibial nerve in the popliteal fossa with low voltage to preferentially activate sensory fibers (not motor fibers), which carry the impulse proximally to the spinal cord.</li>
+          <li><strong>F-wave:</strong> not part of a reflex arc — the recorded impulses travel only among motor axons. After distal motor nerve stimulation, some impulses travel antidromically up the axon and cause a few anterior horn motor cell bodies to "backfire," sending impulses back down to produce submaximal muscle activation.</li>
+        </ul>
+      </div>
+
+      <!-- ============ EMG FUNDAMENTALS ============ -->
+      <div class="section-label" id="emg-fundamentals">EMG Basics — Electromyography</div>
+
+      <div class="block">
+        <div class="block-head"><h2 class="block-title">Analysis of spontaneous activity</h2></div>
+        <p>Abnormal spontaneous activity carries real diagnostic value: its distribution helps with neuroanatomic localization, the degree/amount helps gauge severity, and the pattern helps establish a time course for the lesion.</p>
+      </div>
+
+      <div class="block">
+        <div class="block-head"><h2 class="block-title">Morphology</h2></div>
+        <ul>
+          <li><strong>MEPP / endplate noise:</strong> if the needle is near the endplate zone — small amplitude, monophasic negative morphology. Normal finding.</li>
+          <li><strong>MFAP, brief spike:</strong> 1&#8211;5 ms duration, low amplitude (10&#8211;100 &#956;V), can be biphasic or triphasic.</li>
+          <li><strong>MFAP, positive wave morphology:</strong> initial brief positive followed by a long negative phase.</li>
+        </ul>
+        <div class="pearl">
+          <strong>Pearl</strong>
+          Triphasic or fibrillation-potential-type positive-wave morphology can represent denervating potentials or myotonic discharges — morphology alone can't distinguish them. You need firing pattern and stability too.
+        </div>
+      </div>
+
+      <div class="block">
+        <div class="block-head"><h2 class="block-title">MUAP — motor unit action potential</h2></div>
+        <p>A discharge that occurs as a spontaneous depolarization of a motor neuron or axon prior to its terminal branches. A normal motor unit produces a normal MUAP: 2&#8211;4 phases, 5&#8211;15 ms duration, with amplitude that varies depending on needle position.</p>
+      </div>
+
+      <div class="block">
+        <div class="block-head"><h2 class="block-title">Stability</h2></div>
+        <ul>
+          <li>Spontaneous potentials are generally stable in morphology.</li>
+          <li><strong>Waxes:</strong> amplitude goes up and down. <strong>Wanes:</strong> amplitude decreases or changes abruptly.</li>
+          <li><strong>Myotonic discharges:</strong> MFAPs that wax and wane in amplitude.</li>
+          <li><strong>Neuromyotonic discharges:</strong> marked decrementing of MUAP amplitude.</li>
+        </ul>
+      </div>
+
+      <div class="block">
+        <div class="block-head"><h2 class="block-title">Firing characteristics</h2></div>
+        <p>Voluntary motor unit activation fires at &ge;4&#8211;5 Hz — anything slower can't be under voluntary control and must be spontaneous.</p>
+        <ul>
+          <li><strong>Regular:</strong> fibrillation potentials, positive sharp waves.</li>
+          <li><strong>Irregular:</strong> endplate potentials (sputtering), myotonic discharges (waxing/waning), neuromyotonic discharges (waning), doublets/triplets in tetany (bursting), myokymic discharges.</li>
+        </ul>
+      </div>
+
+      <div class="block">
+        <div class="block-head"><h2 class="block-title">Normal spontaneous activity</h2></div>
+        <ul>
+          <li><strong>Endplate noise:</strong> low-amplitude, monophasic, negative potentials, firing irregularly at 20&#8211;40 Hz. "Seashell" sound.</li>
+          <li><strong>Endplate spikes ("nerve potentials"):</strong> MFAPs firing irregularly up to 50 Hz, usually alongside endplate noise. Biphasic with an initial negative deflection — reflects the needle sitting right at the AP generation site. Cracking, buzzing, or sputtering sound.</li>
+        </ul>
+      </div>
+
+      <div class="block">
+        <div class="block-head"><h2 class="block-title">Abnormal muscle fiber potentials</h2></div>
+        <div class="img-card">
+          <p class="file-title">Waveform comparison, calibrated to real timing/frequency</p>
+          <div id="svg-abnormal"></div>
+        </div>
+        <ul>
+          <li><strong>Fibrillation potentials:</strong> electrophysiologic marker of active denervation. Brief spike with initial positive deflection, 1&#8211;5 ms duration, low amplitude. "Rain on the roof" sound.</li>
+          <li><strong>Positive sharp waves:</strong> also an active denervation marker. Brief initial positive followed by a long negative phase, firing regularly between 0.5&#8211;10 Hz. Dull pop sound.</li>
+          <li><strong>Complex repetitive discharges (CRDs):</strong> occur in chronic neuropathic or myopathic processes, or adjacent to denervated muscle fibers. High-frequency (5&#8211;100 Hz), multiserrated repetitive discharges with an abrupt termination. Machine-like sound.</li>
+          <li><strong>Myotonic discharges:</strong> seen in myotonic dystrophy, myotonia congenita, paramyotonia congenita, and other myopathies (a single run can appear in any denervating disorder too). Characteristic waxing and waning of both amplitude and frequency, firing at 20&#8211;150 Hz. "Revving engine" sound.</li>
+        </ul>
+      </div>
+
+      <div class="block">
+        <div class="block-head"><h2 class="block-title">Abnormal motor unit action potentials</h2></div>
+        <ul>
+          <li><strong>Fasciculation potentials:</strong> associated with motor neuron disease (ALS), also seen in radiculopathies, polyneuropathies, and entrapment neuropathies. Fire very slowly and irregularly, &lt;1&#8211;2 Hz. "Corn popping" sound.</li>
+          <li><strong>Doublets, triplets, multiplets:</strong> seen anywhere fasciculations occur, characteristically in tetany from hypocalcemia.</li>
+          <li><strong>Cramp potentials:</strong> high-frequency discharges of motor axons, not primarily a muscle phenomenon — normal-appearing MUAPs firing repetitively and sometimes irregularly at 40&#8211;75 Hz.</li>
+          <li><strong>Myokymic discharges:</strong> associated with radiation-induced injury, GBS (facial), MS (facial), pontine tumors, hypocalcemia, and timber rattlesnake envenomation. Burst firing frequency: 5&#8211;60 Hz.</li>
+          <li><strong>Neuromyotonic discharges:</strong> seen in acquired neuromyotonia (an autoimmune channelopathy) and old poliomyelitis. High-frequency (150&#8211;250 Hz), decrementing, repetitive discharges.</li>
+          <li><strong>Rest tremor:</strong> synchronous bursting pattern of MUAPs separated by relative silence, with characteristic waxing/waning of amplitude and frequency at 20&#8211;150 Hz.</li>
+        </ul>
+      </div>
+
+      <div class="block">
+        <div class="block-head"><h2 class="block-title">Causes of low amplitude / increased duration</h2></div>
+        <ul>
+          <li><strong>Low amplitude:</strong> axonal loss, conduction block from demyelination, NMJ disorders, myopathies.</li>
+          <li><strong>Increased duration:</strong> demyelination.</li>
+        </ul>
+        <div class="pearl">
+          <strong>Pearl &mdash; pseudoconduction block</strong>
+          Both demyelination and acute axonal loss can present with reduced amplitude at proximal and distal sites early on. Repeat the study after 1 week, once Wallerian degeneration is complete, to tell them apart. Demyelinating range: conduction velocity &lt;75% of the lower limit of normal, distal latency &gt;130% of the upper limit of normal.
+        </div>
+      </div>
+
+      <!-- ============ PODCAST ============ -->
+      <div class="section-label" id="podcast">Podcast</div>
+      <div class="block">
+        <p class="lecture-empty">Coming soon &mdash; link to be added.</p>
+      </div>
+
+      <!-- ============ PRACTICAL CASES ============ -->
+      <div class="section-label" id="practical-cases">Practical Cases</div>
+      <div class="block">
+        <p class="lecture-empty">Coming soon.</p>
+      </div>
+
+      <!-- ============ QBANK ============ -->
+      <div class="section-label" id="qbank">Qbank</div>
+      <div class="block">
+        <p class="lecture-empty">Coming soon &mdash; pending workbook document.</p>
+      </div>
+
+      <footer class="site-footer">
+        Adapted from the residency's internal EMG/NCV teaching deck. Diagrams are redrawn schematics, not reproductions of any textbook figures. References: neupsykey.com (basic nerve conduction studies, basic electromyography), musculoskeletalkey.com (electrodiagnostic examination). See <a href="CONTRIBUTING.md">CONTRIBUTING.md</a> for how to add to this page.
+      </footer>
+    </main>
+  </div>
+</div>
+
+<script>window.SITE_ROOT = "";</script>
+<script src="nav-data.js"></script>
+<script src="script.js"></script>
+<script src="emg-diagrams.js"></script>
+</body>
+</html>
