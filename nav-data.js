@@ -37,6 +37,22 @@ window.NAV_SECTIONS = [
       { name: "Status Migrainosus", url: "protocols/status-migrainosus.html", tag: "Urgent" }
     ]
   },
+  {
+    name: "Tips & Tricks",
+    icon: "\uD83D\uDCA1",
+    status: "active",
+    topics: [
+      { name: "Jewish Hospital", url: "tips-and-tricks.html#jewish-hospital", tag: "" },
+      { name: "Patient Lists", url: "tips-and-tricks.html#patient-lists", tag: "" },
+      { name: "Cerner Documentation", url: "tips-and-tricks.html#cerner-documentation", tag: "" },
+      { name: "Orders", url: "tips-and-tricks.html#orders", tag: "" },
+      { name: "Imaging & Outside Records", url: "tips-and-tricks.html#imaging-records", tag: "" },
+      { name: "Transfers", url: "tips-and-tricks.html#transfers", tag: "" },
+      { name: "Epic Outpatient Workflow", url: "tips-and-tricks.html#epic-outpatient", tag: "" },
+      { name: "IT Access & Apps", url: "tips-and-tricks.html#it-access", tag: "" },
+      { name: "ED Systems", url: "tips-and-tricks.html#ed-systems", tag: "" }
+    ]
+  },
   { name: "Epilepsy", icon: "\uD83E\uDDE0", status: "planned", topics: [] },
   { name: "Stroke", icon: "\uD83E\uDE78", status: "planned", topics: [] },
   { name: "Neuromuscular", icon: "\uD83D\uDCAA", status: "planned", topics: [] },

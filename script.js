@@ -32,7 +32,7 @@
       if (section.topics.length) {
         html += '<ul class="side-topics">';
         section.topics.forEach(function (t) {
-          var file = t.url.split("/").pop();
+          var file = t.url.split("/").pop().split("#")[0];
           var isActive = file === cur;
           html += '<li><a href="' + resolve(t.url) + '" class="' + (isActive ? "active" : "") + '">' + t.name + "</a></li>";
         });

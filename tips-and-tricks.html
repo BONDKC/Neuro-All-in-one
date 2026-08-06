@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tips &amp; Tricks — NeuroBureau</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="pager-bar">
+  <div class="pager-bar-inner">
+    <button class="drawer-toggle" id="drawerToggle" aria-label="Open menu">&#9776;</button>
+    <a href="index.html" class="pager-brand"><strong>NEUROBUREAU</strong></a>
+    <div class="pager-screen">
+      <input id="pagerSearch" type="text" placeholder="Search…" autocomplete="off">
+      <span class="pager-cursor"></span>
+    </div>
+  </div>
+</header>
+
+<div class="app-shell">
+  <div class="drawer-scrim" id="drawerScrim"></div>
+  <nav class="sidebar" id="sidebarMount"></nav>
+
+  <div class="main-content">
+    <main class="wrap">
+      <a href="index.html" class="back-link">&larr; NeuroBureau home</a>
+      <p class="eyebrow">Workflow &amp; EHR</p>
+      <h1 class="page-title">Tips &amp; Tricks</h1>
+      <p class="subtitle">Cerner, Epic, and general workflow tricks residents have figured out the hard way. Jump to a section from the sidebar, or scroll.</p>
+
+      <!-- ============ JEWISH HOSPITAL ============ -->
+      <div class="section-label" id="jewish-hospital" style="border-top:none; padding-top:0;">Jewish Hospital</div>
+
+      <div class="block">
+        <div class="block-head"><h2 class="block-title">Jewish phone transfer</h2></div>
+        <ul>
+          <li>Create 2 new contacts in your phone (works on iPhone, unconfirmed on Android). Where you see <code>*</code>, substitute your own 10-digit phone number including area code.</li>
+          <li><strong>Jewish Routines:</strong> <code>5025889024,85221762176#,72#,1**********#,1</code></li>
+          <li><strong>Jewish Stat:</strong> <code>5025889024,58478227353#,72#,1**********#,1</code></li>
+          <li>Someone can also forward you the contact directly and you can edit it from there.</li>
+        </ul>
+        <div class="pearl">
+          <strong>Pearl</strong>
+          After tapping the contact you'll hear it auto-dialing, then 3 low-pitch tones in a row — that confirms it worked. It doesn't always connect on the first try (manual or automatic), so listen for the tones before assuming it went through.
+        </div>
+      </div>
+
+      <div class="block">
+        <div class="block-head"><h2 class="block-title">Jewish Hypercoagulable panel</h2></div>
+        <p>The hypercoag panel is ordered often in stroke patients, and exists as a premade order set — but only inside a ULH encounter, not Jewish.</p>
+        <ul>
+          <li>Open a ULH encounter for any patient and start ordering the hypercoag panel (don't actually initiate it).</li>
+          <li>"Save as my favorite" the same way as the order-copying trick below.</li>
+          <li>Once saved as your own favorite plan, you can order it on Jewish patients too.</li>
+        </ul>
+      </div>
+
+      <!-- ============ PATIENT LISTS ============ -->
+      <div class="section-label" id="patient-lists">Patient Lists</div>
+
+      <div class="block">
+        <div class="block-head"><h2 class="block-title">How to print the list from SharePoint</h2></div>
+        <ul>
+          <li>Print from <strong>Classic view</strong>, not normal view — normal view uses page frames that don't print correctly and patients often get left off the printout. (This is why people add a dummy "xxxxxxxxxxxxxx" patient at the end of the list — as a canary for this exact problem.)</li>
+        </ul>
+        <div class="img-card">
+          <p class="file-title">Recommended print dialog settings</p>
+          <img src="images/tips/sharepoint-print-settings.jpg" alt="Print dialog showing landscape layout, flip on long edge, custom margins around 0.15, custom scale around 50%, headers and footers unchecked">
+        </div>
+        <ul>
+          <li>Layout: Landscape</li>
+          <li><strong>Flip on long edge</strong> (not shown in the screenshot above, but important)</li>
+          <li>Margins: Custom, drag to around 0.15"</li>
+          <li>Scale: Custom, around 50% (decrease further to fit the list on fewer pages)</li>
+          <li>Uncheck Headers and footers</li>
+        </ul>
+      </div>
+
+      <div class="block">
+        <div class="block-head"><h2 class="block-title">Cerner patient lists</h2></div>
+        <ul>
+          <li>Only give other people <strong>"Maintain"</strong> access to your lists — otherwise rotators can accidentally delete your list when they go off service.</li>
+          <li><strong>Required lists:</strong> General neurology, Stroke Census, Jewish stroke, Jewish general, EMU, PFO LIST NEW</li>
+          <li><strong>Helpful lists:</strong> ULH ED, ULH Master, Real Jewish ER, Jewish master list</li>
+          <li>You should already have access to these — if not, ask another resident currently on service.</li>
+        </ul>
+      </div>
+
+      <div class="block">
+        <div class="block-head"><h2 class="block-title">Making patient lists</h2></div>
+        <p>Move lists from Available lists to Active lists in Cerner's list manager — ask a co-resident to walk you through it once if the UI isn't obvious; it's much faster shown than described.</p>
+      </div>
+
+      <!-- ============ CERNER DOCUMENTATION ============ -->
+      <div class="section-label" id="cerner-documentation">Cerner Documentation</div>
+
+      <div class="block">
+        <div class="block-head"><h2 class="block-title">Have my labs been drawn?</h2></div>
+        <p>Cerner can show you whether ordered labs have actually been collected yet — useful for not repeatedly asking nursing. Doesn't work as well for routine daily scheduled labs.</p>
+      </div>
+
+      <div class="block">
+        <div class="block-head"><h2 class="block-title">Dot phrases</h2></div>
+        <p>Dot phrases are reusable text snippets — build your own or copy someone else's.</p>
+        <div class="img-card">
+          <p class="file-title">My Auto Text Library</p>
+          <img src="images/tips/dot-phrases-library.jpg" alt="Auto Text Copy Utility showing a library of personal dot phrases like .cva_zk, .pex, .rankin">
+        </div>
+        <ul>
+          <li>If you don't see the dot phrase tool right away, check a dropdown — everyone's Cerner layout is a little different.</li>
+          <li>You can create or edit your own dot phrases directly, or copy someone else's into your own library.</li>
+        </ul>
+      </div>
+
+      <div class="block">
+        <div class="block-head"><h2 class="block-title">Cerner note filters</h2></div>
+        <ul>
+          <li>In a patient's chart, open the Documentation tab on the left — there's a dropdown of Default filters (e.g. "All Physician Notes" shows only H&amp;Ps, progress notes, ED notes, procedure notes, filtering out case management, PT/OT/speech, etc).</li>
+          <li>Advanced filters live in the same area, and let you build your own.</li>
+        </ul>
+        <div class="pearl">
+          <strong>Pearl — building a custom filter</strong>
+          Click "Create New filter," name it, and the most useful lever is <strong>Document types</strong>. A few ready-made combinations:
+        </div>
+        <ul>
+          <li><strong>Prior EEGs:</strong> expand ClinicalDoc &rarr; Documents and Reports &rarr; Clinic Notes &rarr; check <em>Neuro Diagnostics</em> &rarr; Save.</li>
+          <li><strong>EKGs:</strong> ClinicalDoc &rarr; Documents and Reports &rarr; check <em>Cardiac</em>.</li>
+          <li><strong>Therapy notes:</strong> ClinicalDoc &rarr; Documents and Reports &rarr; Powerform Textual Rendition Notes &rarr; check "Occupational Therapy Forms — Text," "Physical Therapy Forms — Text," and "Speech Therapy Forms — Text."</li>
+        </ul>
+      </div>
+
+      <div class="block">
+        <div class="block-head"><h2 class="block-title">Small vs. large document view</h2></div>
+        <p>In the Documentation tab, drag the Preview slider left or right to change how document titles display — worth trying both to see which is easier to scan for you.</p>
+      </div>
+
+      <div class="block">
+        <div class="block-head"><h2 class="block-title">Cerner text looks tiny/poorly proportioned (DPI resolution)</h2></div>
+        <div class="img-card">
+          <p class="file-title">Fixing the Citrix DPI scaling issue</p>
+          <img src="images/tips/cerner-dpi-fix.jpg" alt="Steps to fix DPI: right click Cerner icon, Advanced Preferences, High DPI, then select 'Let the operating system scale the resolution' and save">
+        </div>
+        <ol>
+          <li>Right-click the Cerner icon in the bottom corner of the taskbar.</li>
+          <li>Choose Advanced Preferences &rarr; High DPI.</li>
+          <li>Select "Let the operating system scale the resolution" &rarr; Save &rarr; relaunch the session for it to take effect.</li>
+        </ol>
+      </div>
+
+      <div class="block">
+        <div class="block-head"><h2 class="block-title">Cerner session cleanup</h2></div>
+        <p>Getting repeatedly kicked out of your Cerner session usually means two people are trying to use the same session at once — either you left your account logged in on another computer, or someone else's account is still logged in where you're sitting.</p>
+        <ul>
+          <li>If you know where you left your account logged in, go log it out there.</li>
+          <li>If you don't know where, force logout from everywhere via the icon on <a href="https://uapps.uoflhealth.org" target="_blank">uapps.uoflhealth.org</a>.</li>
+        </ul>
+      </div>
+
+      <!-- ============ ORDERS ============ -->
+      <div class="section-label" id="orders">Orders</div>
+
+      <div class="block">
+        <div class="block-head"><h2 class="block-title">Order sets — copying from another resident</h2></div>
+        <div class="img-card">
+          <p class="file-title">Copying a shared order plan</p>
+          <img src="images/tips/order-set-copy.jpg" alt="New Order Entry panel showing Shared tab with another provider's order favorites, and the Order button to duplicate">
+        </div>
+        <ol>
+          <li>Open any patient chart.</li>
+          <li>Click <strong>Provider View</strong>.</li>
+          <li>Click the <strong>Inpatient Summary</strong> tab.</li>
+          <li>Under New Order Entry, click the <strong>Shared</strong> tab and enter the name of the resident whose orders you want to duplicate.</li>
+        </ol>
+        <p>Your exact layout may look slightly different depending on your Cerner configuration.</p>
+      </div>
+
+      <div class="block">
+        <div class="block-head"><h2 class="block-title">Add back items omitted from an order set</h2></div>
+        <p>If an order set is missing an item you expected, there's usually a way to add it back in rather than ordering it separately — worth exploring the order set's edit/customize option before assuming it's not available.</p>
+      </div>
+
+      <!-- ============ IMAGING & OUTSIDE RECORDS ============ -->
+      <div class="section-label" id="imaging-records">Imaging &amp; Outside Records</div>
+
+      <div class="block">
+        <div class="block-head"><h2 class="block-title">CareEverywhere — outside hospital records</h2></div>
+        <p>CareEverywhere pulls in a patient's records from an outside hospital. Won't work for every hospital — Baptist and Norton generally work well, but the VA only shows limited info.</p>
+      </div>
+
+      <div class="block">
+        <div class="block-head"><h2 class="block-title">RAD PACS / PowerShare</h2></div>
+        <p>Many patients arrive with neuro imaging already done elsewhere — worth pulling for comparison and to avoid repeat imaging.</p>
+        <ol>
+          <li>Call the outside hospital and ask for Radiology (sometimes a phone menu option, sometimes through the operator).</li>
+          <li>Ask them to PowerShare the images to <strong>UofL Downtown</strong>.</li>
+          <li>After a few minutes, the images are viewable directly through RAD PACS. Some computers have it on the desktop; others need to go through Uapps.</li>
+        </ol>
+      </div>
+
+      <div class="block">
+        <div class="block-head"><h2 class="block-title">Recreating sagittal/coronal images from axial-only studies</h2></div>
+        <p>Head CTs often only include an axial view, but sagittal and coronal views can be genuinely useful.</p>
+        <ul>
+          <li>Click the <strong>"3D"</strong> button to generate them.</li>
+          <li>Use the thin-slice study for the highest-quality reconstruction.</li>
+          <li>Works for MRI too, not just CTH — though thin CTH slices give the best quality result.</li>
+        </ul>
+      </div>
+
+      <div class="block">
+        <div class="block-head"><h2 class="block-title">Duplicate charts</h2></div>
+        <p>Registration sometimes accidentally creates a second account/chart for a patient who's already been seen. If a patient or family mentions a prior visit but you can't find past charts, search by name + date of birth to check for this.</p>
+        <ul>
+          <li>You can add both registrations to your patient list in the meantime.</li>
+          <li>To flag charts for merging, email the MRNs to <strong>ulhmpi@uoflhealth.org</strong> — merges have to wait until the patient is discharged.</li>
+        </ul>
+      </div>
+
+      <!-- ============ TRANSFERS ============ -->
+      <div class="section-label" id="transfers">Transfers</div>
+
+      <div class="block">
+        <div class="block-head"><h2 class="block-title">Calling Access Center for incoming transfers</h2></div>
+        <p>Patients often get accepted for transfer with only partial information passed to residents. Access Center can usually fill in the gaps — even with just a partial name or "neurology is involved."</p>
+        <ul>
+          <li><strong>Phone:</strong> 502-562-8008 (same number used for Code LVO, works for both hospitals).</li>
+          <li>Sometimes transfers even get cancelled after being accepted — worth checking if one seems to be taking too long.</li>
+        </ul>
+        <div class="pearl">
+          <strong>Pearl — useful things to ask</strong>
+          Patient DOB (so you can find them in Epic ahead of time), which hospital they're coming from (so you can add it in CareEverywhere), whether they're coming from a different UofL ED (so you can check FirstNet), and what time the transfer is set up for (so you can plan around it).
+        </div>
+      </div>
+
+      <!-- ============ EPIC OUTPATIENT WORKFLOW ============ -->
+      <div class="section-label" id="epic-outpatient">Epic Outpatient Workflow</div>
+
+      <div class="block">
+        <div class="block-head"><h2 class="block-title">Outpatient scheduling via Epic message</h2></div>
+        <p>Residents can't schedule an exact appointment date directly — instead, message scheduling staff to call the patient. This is <strong>required for every stroke or TIA patient</strong> at sign-off or discharge, no exceptions. Relying on Cerner's built-in follow-up leaves it to the patient to call in on their own; sending an Epic message gets staff to call the patient directly. For general neurology patients it's technically optional if you're confident the patient will call, but best practice is to send the message either way.</p>
+        <div class="img-card">
+          <p class="file-title">Staff Message routing</p>
+          <img src="images/tips/epic-staff-message.jpg" alt="Epic Staff Message compose window showing the To field addressed to ULP Neuro Stroke/Vascular Referral Pool">
+        </div>
+        <ul>
+          <li>Use the <strong>"To"</strong> box, not "Pool for responses."</li>
+          <li><strong>Stroke patients:</strong> send to "P ULP NEURO STROKE/VASCULAR REFERRAL POOL"</li>
+          <li><strong>All other patients:</strong> send to "P HCOC NEUROLOGY SCHEDULING STAFF"</li>
+          <li>Subject: "outpatient follow up"</li>
+          <li>Attach the correct patient, and include reason for referral, a specific provider if applicable, and a rough timeframe in the message body.</li>
+        </ul>
+      </div>
+
+      <div class="block">
+        <div class="block-head"><h2 class="block-title">Outpatient note template</h2></div>
+        <p>Start every note from a premade template rather than blank — several exist and residents use different ones. Find them under <strong>My SmartPhrases</strong>. You can type any user's name to browse their SmartPhrases, then right-click one and choose "Add to My SmartPhrases" if you like it. <code>ImprovedNeuroResNote</code> is one commonly used template.</p>
+      </div>
+
+      <div class="block">
+        <div class="block-head"><h2 class="block-title">Outpatient note speed buttons</h2></div>
+        <p>With an active encounter open, the fastest way to start a note is the Speed Buttons in the Notes tab — clicking the <code>ImprovedNeuroResNote</code> button inserts that template directly. Edit your own speed buttons via the "…" menu &rarr; My Notes Settings.</p>
+      </div>
+
+      <div class="block">
+        <div class="block-head"><h2 class="block-title">Outpatient note macros</h2></div>
+        <p>In NoteWriter, macros instantly re-enter a previously chosen combination of selections — e.g. a normal physical exam. Create one via the dropdown arrow next to the pencil icon, then trigger those same selections again later with one click.</p>
+        <p>A nearby button also lets you copy forward a previously documented physical exam, and another copies forward an entire previous note.</p>
+      </div>
+
+      <div class="block">
+        <div class="block-head"><h2 class="block-title">Expanded outpatient order options</h2></div>
+        <p>Epic has additional outpatient order options beyond what shows by default — worth exploring if you're not seeing an order type you expect.</p>
+      </div>
+
+      <!-- ============ IT ACCESS & APPS ============ -->
+      <div class="section-label" id="it-access">IT Access &amp; Apps</div>
+
+      <div class="block">
+        <div class="block-head"><h2 class="block-title">PowerChart and Epic on your phone</h2></div>
+        <ul>
+          <li><strong>Cerner/PowerChart:</strong> download "PowerChartTouch" and "Cerner Message Center" (iPhone app names).</li>
+          <li><strong>Epic:</strong> download "Haiku" (iPhone app name).</li>
+          <li>Call IT for access — they'll email instructions and an access code.</li>
+          <li>Alternatively, log in at <a href="https://servicedesk.uoflhealth.org/servicePortal" target="_blank">servicedesk.uoflhealth.org/servicePortal</a> with your Epic login and submit a request: "Epic" &rarr; "Epic – Haiku/Canto…" or "Cerner" &rarr; "PowerChart Touch Mobile Install."</li>
+        </ul>
+      </div>
+
+      <div class="block">
+        <div class="block-head"><h2 class="block-title">ePrescribing in Cerner</h2></div>
+        <ol>
+          <li>Go to <a href="https://servicedesk.uoflhealth.org/servicePortal" target="_blank">servicedesk.uoflhealth.org/servicePortal</a>.</li>
+          <li>Log in with your UofL Health email (or Epic login ID) and Epic password.</li>
+          <li>Select Cerner &rarr; Cerner EPCS &rarr; fill out the form.</li>
+        </ol>
+        <p>Access to Epic e-prescribing and mobile app installs are available on the same site, in different sections.</p>
+      </div>
+
+      <div class="block">
+        <div class="block-head"><h2 class="block-title">Dax Copilot</h2></div>
+        <p>PGY2 and above can request Dax Copilot access for AI-assisted note writing. Log in to Self-Service (same steps as ePrescribing above), then navigate to "Epic" &rarr; "Epic – Dax Copilot" to request it.</p>
+      </div>
+
+      <div class="block">
+        <div class="block-head"><h2 class="block-title">DataArk</h2></div>
+        <p>DataArk holds old records from before Epic was implemented (roughly 2019 and earlier). If you see a "Legacy encounter" while chart-checking, the details are often in DataArk. Log in with your Epic login — if you don't have access, submit a general IT support ticket requesting it.</p>
+      </div>
+
+      <div class="block">
+        <div class="block-head"><h2 class="block-title">ULH Stroke workroom badge access</h2></div>
+        <p>There's no door code for the Stroke workroom — badge access is required. PGY1/PGY2 residents should already have it; if not, it can be requested. Access can also be requested for rotators and medical students so they don't have to knock every time.</p>
+        <p>To request: email <strong>kyle.sams@uoflhealth.org</strong> with a list of names and Cerner login IDs.</p>
+      </div>
+
+      <div class="block">
+        <div class="block-head"><h2 class="block-title">Maintenance &amp; IT work orders</h2></div>
+        <p>For urgent IT issues, calling IT directly is usually faster. For non-urgent issues (a few days' wait is fine), work orders for both IT and building/equipment maintenance can be submitted at <a href="https://uoflhealthnow.org/resources/" target="_blank">uoflhealthnow.org/resources</a>.</p>
+      </div>
+
+      <!-- ============ ED SYSTEMS ============ -->
+      <div class="section-label" id="ed-systems">ED Systems</div>
+
+      <div class="block">
+        <div class="block-head"><h2 class="block-title">FirstNet ED board</h2></div>
+        <p>FirstNet lets you view the Emergency Department board across different hospitals — useful for tracking incoming or boarding patients without calling each ED individually.</p>
+      </div>
+
+      <div class="block">
+        <div class="block-head"><h2 class="block-title">Frazier ITW charting</h2></div>
+        <p>Patients admitted at Frazier have their PM&amp;R progress notes and PT/OT/SLP notes in a separate charting system from the main EHR — worth checking there specifically if you can't find therapy documentation where you'd expect.</p>
+      </div>
+
+      <footer class="site-footer">
+        Compiled from the residency's internal Tips &amp; Tricks deck. Workflows and access requests may change — if a step here doesn't match what you're seeing, check with IT or a senior resident. See <a href="CONTRIBUTING.md">CONTRIBUTING.md</a> for how to add a new tip.
+      </footer>
+    </main>
+  </div>
+</div>
+
+<script>window.SITE_ROOT = "";</script>
+<script src="nav-data.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
