@@ -87,5 +87,15 @@ window.NAV_SECTIONS = [
   { name: "Headache", icon: "\uD83E\uDD15", status: "planned", topics: [] },
   { name: "Neurocritical Care", icon: "\uD83C\uDFE5", status: "planned", topics: [] },
   { name: "Neuroimmunology", icon: "\uD83E\uDDEC", status: "planned", topics: [] },
-  { name: "Neuro Exam", icon: "\uD83D\uDD0D", status: "planned", topics: [] }
+  {
+    name: "Neuro Exam",
+    icon: "\uD83D\uDD0D",
+    status: "active",
+    topics: [
+      { name: "General Observation", url: "protocols/neuro-exam.html#ch-observation", tag: "" },
+      { name: "Mental Status", url: "protocols/neuro-exam.html#ch-mental", tag: "" },
+      { name: "Speech & Language", url: "protocols/neuro-exam.html#ch-speech", tag: "" },
+      { name: "Cranial Nerves", url: "protocols/neuro-exam.html#ch-cn", tag: "" }
+    ]
+  }
 ];
