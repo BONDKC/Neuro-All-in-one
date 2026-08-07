@@ -32,7 +32,7 @@ window.NAV_SECTIONS = [
     status: "active",
     topics: [
       { name: "Status Epilepticus", url: "protocols/status-epilepticus.html", tag: "STAT" },
-      { name: "Acute Ischemic Stroke", url: "protocols/acute-ischemic-stroke.html", tag: "STAT" },
+      { name: "Code stroke", url: "protocols/acute-ischemic-stroke.html", tag: "STAT" },
       { name: "Elevated ICP / Herniation", url: "protocols/elevated-icp.html", tag: "STAT" },
       { name: "Status Migrainosus", url: "protocols/status-migrainosus.html", tag: "Urgent" }
     ]
