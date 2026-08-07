@@ -32,4 +32,25 @@ document.addEventListener("DOMContentLoaded", function () {
     '<text x="50" y="312" font-family="IBM Plex Sans" font-size="11.5" fill="var(--faint)">Not every brainstem stroke shows a classic crossed pattern</text>' +
     '<text x="340" y="355" text-anchor="middle" font-family="IBM Plex Sans" font-size="12" fill="var(--muted)">Localize fast, confirm with urgent neuroimaging</text>' +
     "</svg>";
+
+  var mount2 = document.getElementById("svg-deep-localization");
+  if (mount2) {
+    mount2.innerHTML =
+      '<svg width="100%" viewBox="0 0 680 220" role="img">' +
+      '<title>Internal capsule, thalamus, cerebellum, and medulla localization</title>' +
+      '<desc>Four boxes summarizing key localizing signs for internal capsule strokes with pure motor hemiparesis, thalamic strokes with pure sensory loss, cerebellar strokes with ataxia, and medullary strokes with crossed signs.</desc>' +
+      '<rect x="30" y="20" width="300" height="80" rx="8" fill="var(--panel-raised)" stroke="var(--line)" stroke-width="0.5"/>' +
+      '<text x="180" y="45" text-anchor="middle" font-family="IBM Plex Mono" font-size="14" fill="var(--paper)">Internal capsule</text>' +
+      '<text x="180" y="68" text-anchor="middle" font-family="IBM Plex Sans" font-size="12" fill="var(--muted)">Pure motor hemiparesis, no cortical signs</text>' +
+      '<rect x="350" y="20" width="300" height="80" rx="8" fill="var(--pager-green-dim)" stroke="var(--pager-green)" stroke-width="0.5"/>' +
+      '<text x="500" y="45" text-anchor="middle" font-family="IBM Plex Mono" font-size="14" fill="var(--pager-green)">Thalamus</text>' +
+      '<text x="500" y="68" text-anchor="middle" font-family="IBM Plex Sans" font-size="12" fill="var(--paper)">Pure sensory stroke, contralateral loss</text>' +
+      '<rect x="30" y="120" width="300" height="80" rx="8" fill="var(--pearl-amber-dim)" stroke="var(--pearl-amber)" stroke-width="0.5"/>' +
+      '<text x="180" y="145" text-anchor="middle" font-family="IBM Plex Mono" font-size="14" fill="var(--pearl-amber)">Cerebellum</text>' +
+      '<text x="180" y="168" text-anchor="middle" font-family="IBM Plex Sans" font-size="12" fill="var(--paper)">Ataxia, dysmetria, nystagmus &#8212; watch mass effect</text>' +
+      '<rect x="350" y="120" width="300" height="80" rx="8" fill="var(--stat-red-dim)" stroke="var(--stat-red)" stroke-width="0.5"/>' +
+      '<text x="500" y="145" text-anchor="middle" font-family="IBM Plex Mono" font-size="14" fill="var(--stat-red)">Medulla</text>' +
+      '<text x="500" y="168" text-anchor="middle" font-family="IBM Plex Sans" font-size="12" fill="var(--paper)">Crossed signs, lateral vs medial patterns</text>' +
+      "</svg>";
+  }
 });
