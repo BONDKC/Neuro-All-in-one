@@ -970,3 +970,57 @@ html, body { overflow-x: hidden; max-width: 100%; }
   margin: 12px 0 6px;
 }
 .subtopic h5:first-of-type { margin-top: 0; }
+
+/* ============================================================
+   STROKE ETIOLOGY PAGE — think badges, pattern/comparison cards
+   ============================================================ */
+
+.think-badge {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: var(--pager-green);
+  background: var(--pager-green-dim);
+  border: 1px solid var(--pager-green);
+  border-radius: var(--radius);
+  padding: 4px 10px;
+  margin-bottom: 12px;
+}
+
+.pattern-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 10px;
+  margin: 14px 0;
+}
+.pattern-card {
+  background: var(--panel-raised);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 14px;
+  font-size: 13.5px;
+}
+.pattern-card .pat-a { color: var(--paper); }
+.pattern-card .pat-arrow { color: var(--faint); font-family: var(--mono); font-size: 12px; margin: 6px 0; display: block; }
+.pattern-card .pat-b { color: var(--pager-green); font-weight: 600; }
+
+.warn-card {
+  background: var(--stat-red-dim);
+  border: 1px solid var(--stat-red);
+  border-radius: var(--radius);
+  padding: 12px 14px;
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: var(--paper);
+}
+
+.reasoning-flow { margin: 14px 0; }
+.reasoning-flow .rf-step {
+  padding: 10px 14px;
+  border-left: 2px solid var(--pager-green);
+  margin-bottom: 4px;
+  font-size: 14px;
+  color: var(--paper);
+}
+.reasoning-flow .rf-arrow { text-align: center; color: var(--faint); font-family: var(--mono); font-size: 13px; margin: 2px 0; }

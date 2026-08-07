@@ -75,7 +75,14 @@ window.NAV_SECTIONS = [
     ]
   },
   { name: "Epilepsy", icon: "\uD83E\uDDE0", status: "planned", topics: [] },
-  { name: "Stroke", icon: "\uD83E\uDE78", status: "planned", topics: [] },
+  {
+    name: "Stroke",
+    icon: "\uD83E\uDE78",
+    status: "active",
+    topics: [
+      { name: "Etiology, Workup & Secondary Prevention", url: "protocols/stroke-etiology.html", tag: "" }
+    ]
+  },
   { name: "Neuromuscular", icon: "\uD83D\uDCAA", status: "planned", topics: [] },
   { name: "Headache", icon: "\uD83E\uDD15", status: "planned", topics: [] },
   { name: "Neurocritical Care", icon: "\uD83C\uDFE5", status: "planned", topics: [] },
