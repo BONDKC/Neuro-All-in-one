@@ -95,7 +95,18 @@ window.NAV_SECTIONS = [
       { name: "General Observation", url: "protocols/neuro-exam.html#ch-observation", tag: "" },
       { name: "Mental Status", url: "protocols/neuro-exam.html#ch-mental", tag: "" },
       { name: "Speech & Language", url: "protocols/neuro-exam.html#ch-speech", tag: "" },
-      { name: "Cranial Nerves", url: "protocols/neuro-exam.html#ch-cn", tag: "" }
+      { name: "Cranial Nerves", url: "protocols/neuro-exam.html#ch-cn", tag: "" },
+      { name: "Motor Examination", url: "protocols/neuro-exam.html#ch-motor", tag: "" },
+      { name: "Reflexes", url: "protocols/neuro-exam.html#ch-reflexes", tag: "" },
+      { name: "Sensory Examination", url: "protocols/neuro-exam.html#ch-sensory", tag: "" },
+      { name: "Coordination", url: "protocols/neuro-exam.html#ch-coordination", tag: "" },
+      { name: "Gait", url: "protocols/neuro-exam.html#ch-gait", tag: "" },
+      { name: "Comatose / Intubated Patient", url: "protocols/neuro-exam.html#ch-coma", tag: "" },
+      { name: "Functional Neurological Disorder", url: "protocols/neuro-exam.html#ch-fnd", tag: "" },
+      { name: "Neuro Tricks", url: "protocols/neuro-exam.html#ch-tricks", tag: "" },
+      { name: "What Am I Actually Testing?", url: "protocols/neuro-exam.html#ch-whatamitesting", tag: "" },
+      { name: "Localization Pearls", url: "protocols/neuro-exam.html#ch-localization", tag: "" },
+      { name: "Quick Reference Checklist", url: "protocols/neuro-exam.html#ch-checklist", tag: "" }
     ]
   }
 ];
