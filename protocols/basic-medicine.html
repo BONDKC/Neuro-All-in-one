@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Basic Medicine for the On-Call Neurologist — NeuroBureau</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<header class="pager-bar">
+  <div class="pager-bar-inner">
+    <button class="drawer-toggle" id="drawerToggle" aria-label="Open menu">&#9776;</button>
+    <a href="../index.html" class="pager-brand"><strong>NEUROBUREAU</strong></a>
+    <div class="pager-screen">
+      <input id="pagerSearch" type="text" placeholder="Search…" autocomplete="off">
+      <span class="pager-cursor"></span>
+    </div>
+  </div>
+</header>
+
+<div class="app-shell">
+  <div class="drawer-scrim" id="drawerScrim"></div>
+  <nav class="sidebar" id="sidebarMount"></nav>
+
+  <div class="main-content">
+    <main class="wrap" style="max-width:1040px;">
+      <a href="../index.html" class="back-link">&larr; NeuroBureau home</a>
+      <p class="eyebrow">On-Call Essentials</p>
+      <h1 class="page-title">Basic Medicine for the On-Call Neurologist</h1>
+      <p class="subtitle">An overnight bedside reference &mdash; not a textbook. Jump to a system from the sidebar, or scroll.</p>
+
+      <div class="wb-layout">
+        <nav class="wb-toc" id="wbToc">
+          <input class="wb-toc-search" id="wbSearch" type="text" placeholder="Filter topics…">
+          <p class="wb-toc-label">Systems</p>
+          <ol id="wbTocList">
+            <li><a href="#ch-hemo">Hemodynamics</a></li>
+            <li><a href="#ch-resp">Respiratory</a></li>
+            <li><a href="#ch-glucose">Glucose</a></li>
+            <li><a href="#ch-nutrition">Nutrition</a></li>
+            <li><a href="#ch-neuro">Common Neurology Complaints</a></li>
+            <li><a href="#ch-infection">Infection</a></li>
+            <li><a href="#ch-gi">Gastrointestinal</a></li>
+            <li><a href="#ch-gu">Genitourinary</a></li>
+            <li><a href="#ch-misc">Miscellaneous</a></li>
+            <li><a href="#ch-call">Who Should I Call?</a></li>
+          </ol>
+        </nav>
+
+        <div class="wb-main">
+
+          <!-- ============ HEMODYNAMICS ============ -->
+          <details class="chapter" id="ch-hemo" open>
+            <summary><span class="num">01</span> &#129412; Hemodynamics<span class="chev">&#9656;</span></summary>
+            <div class="chapter-body">
+
+              <div class="subtopic">
+                <p class="subtopic-title">Hypertension</p>
+                <h5>Overview</h5>
+                <ul>
+                  <li>SBP 110&ndash;160 mmHg is generally acceptable.</li>
+                  <li>Stroke patients may require permissive hypertension depending on the clinical situation.</li>
+                  <li>Persistent hypertension should be treated according to patient-specific goals.</li>
+                </ul>
+                <h5>Evaluation</h5>
+                <ul>
+                  <li>Review BP trend.</li>
+                  <li>Confirm target BP.</li>
+                  <li>Assess symptoms.</li>
+                  <li>Review current antihypertensive medications.</li>
+                </ul>
+                <h5>Management</h5>
+                <p><strong>PRN IV medications</strong></p>
+                <ul>
+                  <li><span class="dose">Labetalol 10 mg IV</span> every 2 hours PRN &mdash; may cause bradycardia, avoid if HR is low</li>
+                  <li><span class="dose">Hydralazine 10 mg IV</span> every 2 hours PRN &mdash; does not cause bradycardia, may alternate hourly with labetalol</li>
+                  <li><strong>Nicardipine (Cardene) infusion</strong> &mdash; ICU only, nurse titrated</li>
+                </ul>
+                <p><strong>Scheduled medications</strong></p>
+                <ul>
+                  <li>Lisinopril: 5 / 10 / 20 / 40 mg daily</li>
+                  <li>Losartan: 12.5 / 25 / 50 / 100 mg daily</li>
+                  <li>Carvedilol: 6.125 / 12.5 / 25 mg BID</li>
+                  <li>Amlodipine: 5 or 10 mg daily</li>
+                  <li>Nifedipine: 30&ndash;90 mg daily (or BID)</li>
+                  <li>Hydralazine: 10 mg TID</li>
+                </ul>
+                <div class="pearl">
+                  <strong>Pearl</strong>
+                  Stroke BP goals differ from general medicine. Verify the BP goal before treating.
+                </div>
+              </div>
+
+              <div class="subtopic">
+                <p class="subtopic-title">Hypotension</p>
+                <h5>Overview</h5>
+                <ul>
+                  <li>SBP &lt;100 mmHg generally requires evaluation.</li>
+                  <li>Worsening neurological deficits with hypotension should be treated promptly.</li>
+                </ul>
+                <h5>Evaluation</h5>
+                <ul>
+                  <li>Review BP trend.</li>
+                  <li>Assess neurologic worsening.</li>
+                  <li>Evaluate volume status.</li>
+                  <li>Consider bleeding, sepsis, medications, cardiac causes.</li>
+                </ul>
+                <h5>Management</h5>
+                <ul>
+                  <li>IV fluid bolus: 1 L over ~2 hours.</li>
+                  <li>Maintenance fluids: 75&ndash;125 mL/hr.</li>
+                  <li>Lay symptomatic stroke patients flat.</li>
+                  <li>Avoid excess fluids in CHF, renal failure, cirrhosis.</li>
+                  <li>Vasopressors if needed.</li>
+                  <li>Levophed per ICU workflow.</li>
+                </ul>
+                <h5>Escalation</h5>
+                <ul>
+                  <li>Neuroanesthesia / ICU if pressors are required.</li>
+                </ul>
+                <div class="pearl">
+                  <strong>Pearl</strong>
+                  Mild hypotension may worsen cerebral ischemia.
+                </div>
+              </div>
+
+              <div class="subtopic">
+                <p class="subtopic-title">Bradycardia</p>
+                <h5>Evaluation</h5>
+                <ul>
+                  <li>Check BP.</li>
+                  <li>Review medications &mdash; recent beta blockers?</li>
+                  <li>ECG.</li>
+                  <li>Sinus bradycardia vs. conduction block.</li>
+                  <li>Symptomatic?</li>
+                </ul>
+                <h5>Management</h5>
+                <ul>
+                  <li>Atropine.</li>
+                  <li>Pacer pads if severe.</li>
+                </ul>
+                <h5>Escalation</h5>
+                <ul>
+                  <li>Cardiology consultation.</li>
+                </ul>
+                <div class="pearl">
+                  <strong>Pearl</strong>
+                  Treat the patient, not the number.
+                </div>
+              </div>
+
+              <div class="subtopic">
+                <p class="subtopic-title">Tachycardia / Atrial Fibrillation</p>
+                <h5>Evaluation</h5>
+                <ul>
+                  <li>Assess symptoms.</li>
+                  <li>ECG.</li>
+                </ul>
+                <h5>Management</h5>
+                <ul>
+                  <li><span class="dose">Metoprolol 5 mg IV</span> push.</li>
+                  <li>Additional rate/rhythm control if needed.</li>
+                </ul>
+                <h5>Escalation</h5>
+                <ul>
+                  <li>Cardiology.</li>
+                </ul>
+              </div>
+
+            </div>
+          </details>
+
+          <!-- ============ RESPIRATORY ============ -->
+          <details class="chapter" id="ch-resp">
+            <summary><span class="num">02</span> &#129749; Respiratory<span class="chev">&#9656;</span></summary>
+            <div class="chapter-body">
+
+              <div class="subtopic">
+                <p class="subtopic-title">Shortness of Breath</p>
+                <h5>Include</h5>
+                <ul>
+                  <li>O2 saturation</li>
+                  <li>ABG/VBG</li>
+                  <li>Chest X-ray</li>
+                </ul>
+                <h5>Differential</h5>
+                <ul>
+                  <li>Pneumonia</li>
+                  <li>PE</li>
+                  <li>COPD/asthma</li>
+                  <li>ARDS</li>
+                  <li>Pleural effusion</li>
+                  <li>Pneumothorax</li>
+                  <li>Pulmonary edema</li>
+                  <li>Cardiac tamponade</li>
+                  <li>Hypoventilation</li>
+                  <li>Anxiety</li>
+                </ul>
+              </div>
+
+              <div class="subtopic">
+                <p class="subtopic-title">Pneumothorax</p>
+                <ul>
+                  <li>Chest X-ray</li>
+                  <li>Trauma/Pulmonary consultation</li>
+                  <li>If unstable &rarr; Rapid Response / Trauma / Neuroanesthesia</li>
+                </ul>
+              </div>
+
+            </div>
+          </details>
+
+          <!-- ============ GLUCOSE ============ -->
+          <details class="chapter" id="ch-glucose">
+            <summary><span class="num">03</span> &#129749; Glucose<span class="chev">&#9656;</span></summary>
+            <div class="chapter-body">
+
+              <div class="subtopic">
+                <p class="subtopic-title">Hyperglycemia</p>
+                <h5>Include</h5>
+                <ul>
+                  <li>Goal BG &lt;200</li>
+                  <li>Sliding scale insulin</li>
+                  <li>NPO insulin strategy</li>
+                  <li>Eating patient insulin strategy</li>
+                  <li>Home insulin conversion example</li>
+                </ul>
+              </div>
+
+              <div class="subtopic">
+                <p class="subtopic-title">Hypoglycemia</p>
+                <h5>Include</h5>
+                <ul>
+                  <li>Apple juice</li>
+                  <li>D50</li>
+                  <li>D5 fluids</li>
+                  <li>Consider tube feeds</li>
+                  <li>Hold insulin</li>
+                </ul>
+              </div>
+
+            </div>
+          </details>
+
+          <!-- ============ NUTRITION ============ -->
+          <details class="chapter" id="ch-nutrition">
+            <summary><span class="num">04</span> &#127868; Nutrition<span class="chev">&#9656;</span></summary>
+            <div class="chapter-body">
+
+              <div class="subtopic">
+                <p class="subtopic-title">Tube Feeds</p>
+                <h5>Include</h5>
+                <ul>
+                  <li>Jevity 1.5</li>
+                  <li>Start 10 mL/hr</li>
+                  <li>Advance 10 mL/hr every 6 hours</li>
+                  <li>Goal 65 mL/hr</li>
+                  <li>Renal formula discussion</li>
+                </ul>
+              </div>
+
+              <div class="subtopic">
+                <p class="subtopic-title">DHT Placement</p>
+                <div class="img-card">
+                  <p class="file-title">Confirming DHT tip position on X-ray</p>
+                  <svg width="100%" viewBox="0 0 680 380" role="img">
+                    <title>Chest and abdominal X-ray schematic showing correct DHT tip placement</title>
+                    <desc>Simplified X-ray-style diagram showing the dobhoff tube passing from the nose down the esophagus, through the stomach, with its tip correctly positioned past the pylorus in the duodenum.</desc>
+                    <rect x="20" y="20" width="640" height="340" rx="8" fill="#050a0d" stroke="var(--line)" stroke-width="0.5"/>
+                    <path d="M300 50 C 260 90, 250 140, 260 190 C 268 230, 300 250, 340 255 C 380 258, 410 245, 415 210 C 418 185, 400 175, 375 178 C 355 180, 348 195, 355 210" fill="none" stroke="var(--faint)" stroke-width="1" opacity="0.5"/>
+                    <text x="270" y="70" font-family="IBM Plex Sans" font-size="11" fill="var(--faint)">esophagus</text>
+                    <text x="330" y="230" font-family="IBM Plex Sans" font-size="11" fill="var(--faint)">stomach</text>
+                    <text x="395" y="200" font-family="IBM Plex Sans" font-size="10" fill="var(--faint)">pylorus</text>
+                    <text x="330" y="290" font-family="IBM Plex Sans" font-size="11" fill="var(--faint)">duodenum</text>
+                    <path d="M300 45 C 262 88, 252 138, 262 188 C 270 226, 298 246, 335 251 C 372 255, 402 242, 410 208 C 412 195, 402 186, 388 187 C 372 188, 362 200, 368 218 C 374 236, 355 250, 340 260" fill="none" stroke="var(--pager-green)" stroke-width="2.5"/>
+                    <circle cx="340" cy="260" r="6" fill="var(--pager-green)"/>
+                    <line x1="340" y1="260" x2="440" y2="290" stroke="var(--pager-green)" stroke-width="0.75" stroke-dasharray="2 2"/>
+                    <text x="445" y="294" font-family="IBM Plex Mono" font-size="12" fill="var(--pager-green)">tip &mdash; past pylorus, in duodenum &#10003;</text>
+                  </svg>
+                </div>
+                <p>Correct placement: tip should sit <strong>past the pylorus, within the duodenum</strong> &mdash; confirm on X-ray before starting feeds.</p>
+              </div>
+
+            </div>
+          </details>
+
+          <!-- ============ COMMON NEUROLOGY COMPLAINTS ============ -->
+          <details class="chapter" id="ch-neuro">
+            <summary><span class="num">05</span> &#129504; Common Neurology Complaints<span class="chev">&#9656;</span></summary>
+            <div class="chapter-body">
+
+              <div class="subtopic">
+                <p class="subtopic-title">Headache</p>
+                <h5>Include</h5>
+                <ul>
+                  <li>Rule out hemorrhage/edema</li>
+                  <li>CT when indicated</li>
+                  <li>Tylenol</li>
+                  <li>Avoid NSAIDs in stroke patients</li>
+                  <li>IV magnesium + compazine + diphenhydramine</li>
+                  <li>IV valproate option</li>
+                  <li>Caffeine</li>
+                  <li>Shafer special</li>
+                </ul>
+              </div>
+
+              <div class="subtopic">
+                <p class="subtopic-title">General Pain</p>
+                <h5>Include</h5>
+                <ul>
+                  <li>Home medications</li>
+                  <li>Tylenol</li>
+                  <li>Topical therapies</li>
+                  <li>Oral medications</li>
+                  <li>IV medications</li>
+                  <li>Avoid NSAIDs/Ketorolac in stroke patients</li>
+                </ul>
+              </div>
+
+              <div class="subtopic">
+                <p class="subtopic-title">Agitation</p>
+                <h5>Non-pharmacologic</h5>
+                <ul>
+                  <li>Delirium precautions</li>
+                  <li>Reduce neuro checks</li>
+                  <li>Sitter</li>
+                  <li>Soft restraints</li>
+                </ul>
+                <h5>Medication options</h5>
+                <ul>
+                  <li>Hydroxyzine</li>
+                  <li>Ativan</li>
+                  <li>Diazepam</li>
+                  <li>Seroquel</li>
+                  <li>Midazolam</li>
+                  <li>Olanzapine</li>
+                  <li>Haloperidol</li>
+                  <li>Precedex infusion</li>
+                </ul>
+                <div class="pearl">
+                  <strong>Warnings</strong>
+                  Older adults. Stroke patients needing frequent exams. Labile BP.
+                </div>
+              </div>
+
+            </div>
+          </details>
+
+          <!-- ============ INFECTION ============ -->
+          <details class="chapter" id="ch-infection">
+            <summary><span class="num">06</span> &#129440; Infection<span class="chev">&#9656;</span></summary>
+            <div class="chapter-body">
+
+              <div class="subtopic">
+                <p class="subtopic-title">Sepsis</p>
+                <h5>Include</h5>
+                <ul>
+                  <li>Vancomycin + Zosyn</li>
+                  <li>Infectious workup</li>
+                  <li>MRSA PCR</li>
+                  <li>Blood cultures</li>
+                  <li>UA/Urine culture</li>
+                  <li>CXR</li>
+                  <li>MDR organisms</li>
+                  <li>Fluids</li>
+                  <li>ICU consideration</li>
+                </ul>
+              </div>
+
+            </div>
+          </details>
+
+          <!-- ============ GASTROINTESTINAL ============ -->
+          <details class="chapter" id="ch-gi">
+            <summary><span class="num">07</span> &#129700; Gastrointestinal<span class="chev">&#9656;</span></summary>
+            <div class="chapter-body">
+
+              <div class="subtopic">
+                <p class="subtopic-title">Nausea/Vomiting</p>
+                <h5>Include</h5>
+                <ul>
+                  <li>QTc check</li>
+                  <li>Ondansetron</li>
+                  <li>Compazine</li>
+                  <li>Diphenhydramine</li>
+                </ul>
+              </div>
+
+              <div class="subtopic">
+                <p class="subtopic-title">Constipation</p>
+                <h5>Escalation</h5>
+                <ul>
+                  <li>Senna</li>
+                  <li>Miralax</li>
+                  <li>Milk of magnesia</li>
+                  <li>Suppository</li>
+                  <li>Enema</li>
+                </ul>
+              </div>
+
+              <div class="subtopic">
+                <p class="subtopic-title">Upper GI Bleeding</p>
+                <h5>Include</h5>
+                <ul>
+                  <li>Vitals</li>
+                  <li>H&amp;H</li>
+                  <li>Type &amp; cross</li>
+                  <li>NG suction</li>
+                  <li>Pantoprazole</li>
+                  <li>GI consultation</li>
+                </ul>
+                <div class="pearl">
+                  <strong>Pearl</strong>
+                  Do not stop antiplatelet/anticoagulation without attending discussion.
+                </div>
+              </div>
+
+            </div>
+          </details>
+
+          <!-- ============ GENITOURINARY ============ -->
+          <details class="chapter" id="ch-gu">
+            <summary><span class="num">08</span> &#128700; Genitourinary<span class="chev">&#9656;</span></summary>
+            <div class="chapter-body">
+
+              <div class="subtopic">
+                <p class="subtopic-title">Hematuria</p>
+                <h5>Include</h5>
+                <ul>
+                  <li>Urology</li>
+                  <li>Foley irrigation</li>
+                  <li>H&amp;H</li>
+                  <li>Type &amp; cross</li>
+                  <li>Anticoagulation discussion</li>
+                </ul>
+              </div>
+
+              <div class="subtopic">
+                <p class="subtopic-title">Urinary Retention</p>
+                <h5>Include</h5>
+                <ul>
+                  <li>Bladder scan</li>
+                  <li>Straight cath &gt;300 mL</li>
+                  <li>Foley after &gt;2 straight caths</li>
+                  <li>Monitor creatinine</li>
+                  <li>IV fluids</li>
+                  <li>Lasix if HF</li>
+                  <li>Flomax</li>
+                  <li>Foley acceptable after TNK if needed</li>
+                </ul>
+              </div>
+
+            </div>
+          </details>
+
+          <!-- ============ MISCELLANEOUS ============ -->
+          <details class="chapter" id="ch-misc">
+            <summary><span class="num">09</span> &#129461; Miscellaneous<span class="chev">&#9656;</span></summary>
+            <div class="chapter-body">
+
+              <div class="subtopic">
+                <p class="subtopic-title">Limb Swelling</p>
+                <ul>
+                  <li>DVT</li>
+                  <li>Ultrasound</li>
+                  <li>IV infiltration</li>
+                  <li>Warm compress</li>
+                </ul>
+              </div>
+
+              <div class="subtopic">
+                <p class="subtopic-title">Comfort Measures</p>
+                <p><strong>Med Comfort Measures</strong> &mdash; ULH order.</p>
+              </div>
+
+            </div>
+          </details>
+
+          <!-- ============ WHO SHOULD I CALL ============ -->
+          <details class="chapter" id="ch-call">
+            <summary><span class="num">10</span> &#9742; Who Should I Call?<span class="chev">&#9656;</span></summary>
+            <div class="chapter-body">
+              <table class="mimic-table">
+                <tr><th>Service</th><th>When</th></tr>
+                <tr><td>Rapid Response</td><td>Unstable pneumothorax; any acutely decompensating patient</td></tr>
+                <tr><td>Cardiology</td><td>Symptomatic bradycardia, tachycardia/AFib needing rate or rhythm control</td></tr>
+                <tr><td>GI</td><td>Upper GI bleeding</td></tr>
+                <tr><td>Trauma</td><td>Pneumothorax</td></tr>
+                <tr><td>Medicine</td><td>General medical decompensation outside primary neurologic issues</td></tr>
+                <tr><td>Neuroanesthesia</td><td>Hypotension requiring pressors; unstable pneumothorax</td></tr>
+              </table>
+            </div>
+          </details>
+
+        </div>
+      </div>
+
+      <footer class="site-footer">
+        Overnight bedside reference only &mdash; confirm doses and pathway against your institution's current protocol. See <a href="../CONTRIBUTING.md">CONTRIBUTING.md</a> for how to add to this page. <a href="../index.html">&larr; Back to NeuroBureau home</a>
+      </footer>
+    </main>
+  </div>
+</div>
+
+<script>window.SITE_ROOT = "../";</script>
+<script src="../nav-data.js"></script>
+<script src="../script.js"></script>
+<script>
+(function () {
+  function openTargetChapter() {
+    var id = location.hash.replace('#', '');
+    if (!id) return;
+    var el = document.getElementById(id);
+    if (el && el.tagName.toLowerCase() === 'details') el.open = true;
+    document.querySelectorAll('.wb-toc a').forEach(function (a) {
+      a.classList.toggle('active', a.getAttribute('href') === location.hash);
+    });
+  }
+  window.addEventListener('hashchange', openTargetChapter);
+  window.addEventListener('DOMContentLoaded', openTargetChapter);
+
+  document.querySelectorAll('.wb-toc a').forEach(function (a) {
+    a.addEventListener('click', function () { setTimeout(openTargetChapter, 0); });
+  });
+
+  var wbSearch = document.getElementById('wbSearch');
+  if (wbSearch) {
+    wbSearch.addEventListener('input', function (e) {
+      var q = e.target.value.trim().toLowerCase();
+      document.querySelectorAll('#wbTocList li').forEach(function (li) {
+        li.style.display = li.textContent.toLowerCase().includes(q) ? '' : 'none';
+      });
+    });
+  }
+})();
+</script>
+</body>
+</html>
