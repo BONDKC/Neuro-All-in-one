@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Neurological Examination — NeuroBureau</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<header class="pager-bar">
+  <div class="pager-bar-inner">
+    <button class="drawer-toggle" id="drawerToggle" aria-label="Open menu">&#9776;</button>
+    <a href="../index.html" class="pager-brand"><strong>NEUROBUREAU</strong></a>
+    <div class="pager-screen">
+      <input id="pagerSearch" type="text" placeholder="Search…" autocomplete="off">
+      <span class="pager-cursor"></span>
+    </div>
+  </div>
+</header>
+
+<div class="app-shell">
+  <div class="drawer-scrim" id="drawerScrim"></div>
+  <nav class="sidebar" id="sidebarMount"></nav>
+
+  <div class="main-content">
+    <main class="wrap" style="max-width:1040px;">
+      <a href="../index.html" class="back-link">&larr; NeuroBureau home</a>
+      <p class="eyebrow">Clinical Skills</p>
+      <h1 class="page-title">Neurological Examination</h1>
+      <p class="subtitle">Everything you need to perform a neuro exam, in one place &mdash; a bedside reference, not a textbook. Jump to a section, or scroll. <em>Building in stages &mdash; Motor/Reflexes/Sensory/Gait, the comatose &amp; FND exams, and Neuro Tricks are coming in follow-up updates.</em></p>
+
+      <div class="wb-layout">
+        <nav class="wb-toc" id="wbToc">
+          <input class="wb-toc-search" id="wbSearch" type="text" placeholder="Filter topics…">
+          <p class="wb-toc-label">Sections</p>
+          <ol id="wbTocList">
+            <li><a href="#ch-observation">General Observation</a></li>
+            <li><a href="#ch-mental">Mental Status</a></li>
+            <li><a href="#ch-speech">Speech &amp; Language</a></li>
+            <li><a href="#ch-cn">Cranial Nerves</a></li>
+          </ol>
+        </nav>
+
+        <div class="wb-main">
+
+          <!-- ============ GENERAL OBSERVATION ============ -->
+          <details class="chapter" id="ch-observation" open>
+            <summary><span class="num">01</span> General Observation<span class="chev">&#9656;</span></summary>
+            <div class="chapter-body">
+              <ul>
+                <li>General appearance</li>
+                <li>Level of distress</li>
+                <li>Abnormal movements</li>
+                <li>Spontaneous limb movement</li>
+                <li>Posture</li>
+                <li>Facial symmetry</li>
+                <li>Speech before formal testing</li>
+                <li>Neglect</li>
+                <li>Gaze preference</li>
+                <li>Medical devices</li>
+                <li>Oxygen</li>
+                <li>Cervical collar</li>
+                <li>Restraints</li>
+              </ul>
+              <div class="pearl">
+                <strong>Pearl</strong>
+                Observe before touching the patient.
+              </div>
+            </div>
+          </details>
+
+          <!-- ============ MENTAL STATUS ============ -->
+          <details class="chapter" id="ch-mental">
+            <summary><span class="num">02</span> Mental Status<span class="chev">&#9656;</span></summary>
+            <div class="chapter-body">
+
+              <div class="subtopic">
+                <p class="subtopic-title">Level of Consciousness</p>
+                <h5>Purpose</h5><p>Establish baseline arousal before testing anything else.</p>
+                <h5>Technique</h5><p>Observe spontaneous arousal; escalate to verbal, then tactile/painful stimulus if needed.</p>
+                <h5>Abnormal Findings</h5><p>Lethargy, obtundation, stupor, coma.</p>
+                <h5>Localization</h5><p>Bilateral cortical dysfunction, or brainstem reticular activating system.</p>
+              </div>
+
+              <div class="subtopic">
+                <p class="subtopic-title">Orientation</p>
+                <h5>Purpose</h5><p>Screen for confusion/delirium.</p>
+                <h5>Technique</h5><p>Person, place, time, situation.</p>
+                <h5>Abnormal Findings</h5><p>Disorientation to time is usually first to go; disorientation to person is a late/severe finding.</p>
+                <h5>Localization</h5><p>Diffuse cortical dysfunction &mdash; not focally localizing.</p>
+              </div>
+
+              <div class="subtopic">
+                <p class="subtopic-title">Attention</p>
+                <h5>Purpose</h5><p>A prerequisite for every other cognitive domain &mdash; if attention is impaired, everything downstream is unreliable.</p>
+                <h5>Technique</h5><p>Digit span forward/backward, days of the week backward, spell "WORLD" backward.</p>
+                <h5>Abnormal Findings</h5><p>Poor digit span, can't sustain a task.</p>
+                <h5>Localization</h5><p>Frontal-subcortical networks; also impaired in delirium of any cause.</p>
+              </div>
+
+              <div class="subtopic">
+                <p class="subtopic-title">Memory</p>
+                <h5>Purpose</h5><p>Assess registration, short-term recall, and remote memory separately.</p>
+                <h5>Technique</h5><p>3-word registration and delayed recall; remote/autobiographical memory questions.</p>
+                <h5>Abnormal Findings</h5><p>Poor delayed recall with intact registration suggests a true memory disorder (e.g., hippocampal); poor registration suggests an attention problem instead.</p>
+                <h5>Localization</h5><p>Medial temporal lobe / hippocampus (episodic memory); diencephalic structures.</p>
+              </div>
+
+              <div class="subtopic">
+                <p class="subtopic-title">Executive Function</p>
+                <h5>Purpose</h5><p>Assess planning, sequencing, and set-shifting.</p>
+                <h5>Technique</h5><p>Luria hand sequence, trail-making, go/no-go tasks.</p>
+                <h5>Abnormal Findings</h5><p>Perseveration, difficulty shifting sets.</p>
+                <h5>Localization</h5><p>Frontal lobe / frontal-subcortical circuits.</p>
+              </div>
+
+              <div class="subtopic">
+                <p class="subtopic-title">Calculations</p>
+                <h5>Purpose</h5><p>Screen parietal (angular gyrus) function.</p>
+                <h5>Technique</h5><p>Serial 7s, simple arithmetic.</p>
+                <h5>Abnormal Findings</h5><p>Acalculia.</p>
+                <h5>Localization</h5><p>Dominant angular gyrus (part of Gerstmann syndrome).</p>
+              </div>
+
+              <div class="subtopic">
+                <p class="subtopic-title">Abstract Thinking</p>
+                <h5>Purpose</h5><p>Screen frontal lobe function.</p>
+                <h5>Technique</h5><p>Proverb interpretation, similarities ("how are an apple and orange alike?").</p>
+                <h5>Abnormal Findings</h5><p>Concrete interpretation.</p>
+                <h5>Localization</h5><p>Frontal lobe.</p>
+              </div>
+
+              <div class="subtopic">
+                <p class="subtopic-title">Fund of Knowledge</p>
+                <h5>Purpose</h5><p>Rough estimate of baseline cognitive/educational level for context.</p>
+                <h5>Technique</h5><p>Current events, presidents, general knowledge questions calibrated to the patient's background.</p>
+                <h5>Abnormal Findings</h5><p>Should be interpreted relative to educational/cultural background, not an absolute cutoff.</p>
+              </div>
+
+              <div class="subtopic">
+                <p class="subtopic-title">Higher Cortical Function</p>
+                <h5>Purpose</h5><p>Screen for apraxia, agnosia, and neglect &mdash; often missed if not specifically tested.</p>
+                <h5>Technique</h5><p>Praxis (pretend to use a comb/toothbrush), object recognition, line bisection/drawing for neglect.</p>
+                <h5>Abnormal Findings</h5><p>Apraxia, agnosia, hemispatial neglect.</p>
+                <h5>Localization</h5><p>Parietal lobe (usually non-dominant for neglect).</p>
+              </div>
+
+            </div>
+          </details>
+
+          <!-- ============ SPEECH & LANGUAGE ============ -->
+          <details class="chapter" id="ch-speech">
+            <summary><span class="num">03</span> Speech &amp; Language<span class="chev">&#9656;</span></summary>
+            <div class="chapter-body">
+
+              <p><strong>Speech</strong> refers to the mechanical production of sound &mdash; articulation, voice quality, fluency of output. <strong>Language</strong> refers to the underlying content &mdash; naming, comprehension, repetition, reading, writing. They can be impaired independently.</p>
+
+              <table class="mimic-table">
+                <tr><th>Domain</th><th>Speech</th><th>Language</th></tr>
+                <tr><td>Fluency</td><td>Rate, articulation, prosody</td><td>Word output content and grammar</td></tr>
+                <tr><td>Naming</td><td>Not applicable</td><td>Confrontation naming</td></tr>
+                <tr><td>Repetition</td><td>Articulation of repeated phrase</td><td>Accuracy of repeated content</td></tr>
+                <tr><td>Comprehension</td><td>Not applicable</td><td>Following commands, yes/no questions</td></tr>
+                <tr><td>Reading</td><td>Not applicable</td><td>Reading comprehension</td></tr>
+                <tr><td>Writing</td><td>Not applicable</td><td>Written language production</td></tr>
+              </table>
+
+              <table class="mimic-table">
+                <tr><th></th><th>Dysarthria</th><th>Aphasia</th></tr>
+                <tr><td>What's impaired</td><td>Mechanical speech production</td><td>Language content itself</td></tr>
+                <tr><td>Naming/comprehension</td><td>Intact</td><td>Impaired</td></tr>
+                <tr><td>Writing</td><td>Intact (if motor function allows)</td><td>Usually impaired too</td></tr>
+                <tr><td>Localization</td><td>CN motor pathways, cerebellum, muscles of articulation</td><td>Dominant hemisphere language network</td></tr>
+              </table>
+
+              <div class="pearl">
+                <strong>Pearl</strong>
+                If a patient can write a coherent sentence but can't speak clearly, think dysarthria, not aphasia. If both spoken and written language are impaired, think aphasia.
+              </div>
+            </div>
+          </details>
+
+          <!-- ============ CRANIAL NERVES ============ -->
+          <details class="chapter" id="ch-cn">
+            <summary><span class="num">04</span> Cranial Nerves<span class="chev">&#9656;</span></summary>
+            <div class="chapter-body">
+
+              <div class="subtopic">
+                <p class="subtopic-title">CN I &mdash; Olfactory</p>
+                <h5>Purpose</h5><p>Assess sense of smell.</p>
+                <h5>Technique</h5><p>Test each nostril separately with a non-irritating scent (coffee, alcohol swab).</p>
+                <h5>Normal Findings</h5><p>Correctly identifies odor bilaterally.</p>
+                <h5>Abnormal Findings</h5><p>Anosmia, unilateral or bilateral.</p>
+                <h5>Localization</h5><p>Olfactory epithelium, nerve, bulb, or tract; orbitofrontal region if higher processing is affected.</p>
+                <h5>What Structure Is Being Tested</h5><p>Olfactory epithelium and CN I.</p>
+                <h5>Clinical Pearl</h5><p>Often skipped, but ask about smell after head trauma or with a suspected frontal lobe mass &mdash; unilateral anosmia can be an early sign.</p>
+                <h5>Common Mistakes</h5><p>Using an irritant like ammonia &mdash; that tests CN V (trigeminal), not CN I.</p>
+              </div>
+
+              <div class="subtopic">
+                <p class="subtopic-title">CN II &mdash; Optic</p>
+                <h5>Purpose</h5><p>Assess visual acuity, visual fields, and the afferent limb of the pupillary light reflex.</p>
+                <h5>Technique</h5><p>Visual acuity (Snellen), visual fields by confrontation, fundoscopy, pupillary light reflex.</p>
+                <h5>Normal Findings</h5><p>Intact acuity, full fields, normal disc, brisk pupillary response.</p>
+                <h5>Abnormal Findings</h5><p>Monocular vision loss (optic nerve), bitemporal hemianopia (chiasm), homonymous hemianopia (retrochiasmal), papilledema, optic disc pallor.</p>
+                <h5>Localization</h5><p>Depends on the pattern &mdash; retina/nerve, chiasm, or retrochiasmal pathway.</p>
+                <h5>What Structure Is Being Tested</h5><p>Retina, optic nerve, chiasm, optic tract.</p>
+                <h5>Clinical Pearl</h5><p>A relative afferent pupillary defect (Marcus Gunn pupil) indicates unilateral optic nerve/anterior visual pathway pathology.</p>
+                <h5>Common Mistakes</h5><p>Forgetting to test acuity and fields in each eye separately.</p>
+              </div>
+
+              <div class="subtopic">
+                <p class="subtopic-title">CN III, IV, VI &mdash; Oculomotor, Trochlear, Abducens</p>
+                <h5>Purpose</h5><p>Extraocular movements, eyelid elevation, pupillary constriction.</p>
+                <h5>Technique</h5><p>H-pattern eye movement testing, assess for ptosis, check pupil size/reactivity.</p>
+                <h5>Normal Findings</h5><p>Full smooth extraocular movements, no ptosis, equal reactive pupils.</p>
+                <h5>Abnormal Findings</h5><p>CN III palsy: down-and-out eye, ptosis, dilated pupil if pupil-involving. CN IV palsy: vertical diplopia worse looking down/in, head tilt away from the lesion. CN VI palsy: horizontal diplopia, failure of abduction.</p>
+                <h5>Localization</h5><p>A pupil-involving CN III palsy is compressive (e.g., PCOM aneurysm) until proven otherwise; pupil-sparing is more often ischemic/microvascular.</p>
+                <h5>What Structure Is Being Tested</h5><p>CN III/IV/VI nuclei, fascicles, or peripheral nerve.</p>
+                <h5>Clinical Pearl</h5><p>Always treat a new pupil-involving CN III palsy as a PCOM aneurysm until ruled out.</p>
+                <h5>Common Mistakes</h5><p>Not distinguishing pupil-involving from pupil-sparing CN III palsy &mdash; this distinction changes the urgency completely.</p>
+              </div>
+
+              <div class="subtopic">
+                <p class="subtopic-title">CN V &mdash; Trigeminal</p>
+                <h5>Purpose</h5><p>Facial sensation (three divisions), muscles of mastication, afferent limb of the corneal reflex.</p>
+                <h5>Technique</h5><p>Light touch/pinprick in V1/V2/V3 distributions, palpate masseter/temporalis while clenching, jaw jerk, corneal reflex.</p>
+                <h5>Normal Findings</h5><p>Symmetric sensation, strong jaw clench, normal corneal reflex.</p>
+                <h5>Abnormal Findings</h5><p>Sensory loss in a division (peripheral) or a crossed "onion-skin" pattern (brainstem &mdash; spinal trigeminal nucleus), weak jaw muscles, absent corneal reflex.</p>
+                <h5>Localization</h5><p>Peripheral nerve vs. brainstem (spinal trigeminal nucleus/tract).</p>
+                <h5>What Structure Is Being Tested</h5><p>Trigeminal nerve and its motor/sensory nuclei.</p>
+                <h5>Clinical Pearl</h5><p>An onion-skin sensory loss pattern on the face suggests a lesion in the spinal trigeminal nucleus/tract (lateral medulla).</p>
+                <h5>Common Mistakes</h5><p>Testing only the afferent (CN V) limb of the corneal reflex without separately confirming the efferent (CN VII) limb.</p>
+              </div>
+
+              <div class="subtopic">
+                <p class="subtopic-title">CN VII &mdash; Facial</p>
+                <h5>Purpose</h5><p>Facial muscle movement, taste to the anterior two-thirds of the tongue, efferent limb of the corneal reflex.</p>
+                <h5>Technique</h5><p>Raise eyebrows, close eyes tightly, smile, puff cheeks.</p>
+                <h5>Normal Findings</h5><p>Symmetric facial movement, including the forehead.</p>
+                <h5>Abnormal Findings</h5><p>UMN pattern (forehead spared, lower face weak) vs. LMN pattern (entire hemiface weak, including forehead &mdash; the Bell's palsy pattern).</p>
+                <h5>Localization</h5><p>UMN: contralateral cortex/corticobulbar tract. LMN: ipsilateral facial nerve or nucleus.</p>
+                <h5>What Structure Is Being Tested</h5><p>Facial nerve, facial nucleus, corticobulbar tract.</p>
+                <h5>Clinical Pearl</h5><p>Forehead sparing means UMN (contralateral cortex); forehead involvement means LMN (ipsilateral nerve) &mdash; because the forehead has bilateral cortical innervation.</p>
+                <h5>Common Mistakes</h5><p>Not testing forehead movement separately from the lower face, which is exactly what distinguishes UMN from LMN patterns.</p>
+              </div>
+
+              <div class="subtopic">
+                <p class="subtopic-title">CN VIII &mdash; Vestibulocochlear</p>
+                <h5>Purpose</h5><p>Hearing and balance/vestibular function.</p>
+                <h5>Technique</h5><p>Finger rub/whisper test, Weber and Rinne tests, assess for nystagmus/vertigo.</p>
+                <h5>Normal Findings</h5><p>Symmetric hearing, no nystagmus.</p>
+                <h5>Abnormal Findings</h5><p>Conductive vs. sensorineural hearing loss (Weber lateralizes to the affected ear in conductive loss, away from it in sensorineural loss); nystagmus/vertigo suggests vestibular involvement.</p>
+                <h5>Localization</h5><p>Cochlear vs. vestibular branch; peripheral vs. central vertigo.</p>
+                <h5>What Structure Is Being Tested</h5><p>Cochlear and vestibular nerve.</p>
+                <h5>Clinical Pearl</h5><p>Use the HINTS exam (Head Impulse, Nystagmus, Test of Skew) to distinguish benign peripheral vertigo from dangerous central vertigo in acute vestibular syndrome.</p>
+                <h5>Common Mistakes</h5><p>Not performing HINTS when it's actually indicated (acute, persistent vestibular syndrome).</p>
+              </div>
+
+              <div class="subtopic">
+                <p class="subtopic-title">CN IX, X &mdash; Glossopharyngeal, Vagus</p>
+                <h5>Purpose</h5><p>Palate elevation, gag reflex, voice quality, swallowing.</p>
+                <h5>Technique</h5><p>Have the patient say "ah" and observe palate elevation/uvula position, gag reflex, assess voice quality.</p>
+                <h5>Normal Findings</h5><p>Symmetric palate elevation, midline uvula, intact gag, normal voice.</p>
+                <h5>Abnormal Findings</h5><p>Uvula deviates away from the weak side, hoarse or nasal voice, dysphagia.</p>
+                <h5>Localization</h5><p>Nucleus ambiguus (medulla) or peripheral nerve.</p>
+                <h5>What Structure Is Being Tested</h5><p>CN IX/X nuclei and peripheral nerves.</p>
+                <h5>Clinical Pearl</h5><p>The uvula deviates away from the side of the lesion (the weak side fails to elevate).</p>
+                <h5>Common Mistakes</h5><p>Relying solely on the gag reflex, which is insensitive and nonspecific &mdash; a bedside swallow assessment is more clinically useful.</p>
+              </div>
+
+              <div class="subtopic">
+                <p class="subtopic-title">CN XI &mdash; Accessory</p>
+                <h5>Purpose</h5><p>Trapezius and sternocleidomastoid strength.</p>
+                <h5>Technique</h5><p>Shoulder shrug against resistance, head turn against resistance.</p>
+                <h5>Normal Findings</h5><p>Symmetric strength.</p>
+                <h5>Abnormal Findings</h5><p>Weak shoulder shrug or weak head turn.</p>
+                <h5>Localization</h5><p>Spinal accessory nerve; note the SCM's action is contralateral (the right SCM turns the head to the left).</p>
+                <h5>What Structure Is Being Tested</h5><p>Spinal accessory nerve.</p>
+                <h5>Clinical Pearl</h5><p>Because SCM action is contralateral, weakness turning the head to one side actually localizes to the SCM on the opposite side.</p>
+                <h5>Common Mistakes</h5><p>Forgetting the contralateral action of the SCM when interpreting a lateralizing finding.</p>
+              </div>
+
+              <div class="subtopic">
+                <p class="subtopic-title">CN XII &mdash; Hypoglossal</p>
+                <h5>Purpose</h5><p>Tongue movement and strength.</p>
+                <h5>Technique</h5><p>Tongue protrusion, observe for deviation, fasciculations, or atrophy.</p>
+                <h5>Normal Findings</h5><p>Midline protrusion, no fasciculations, no atrophy.</p>
+                <h5>Abnormal Findings</h5><p>Deviation, fasciculations (suggests a LMN process, e.g., ALS), atrophy.</p>
+                <h5>Localization</h5><p>Ipsilateral LMN lesion (nerve or nucleus) vs. contralateral UMN lesion.</p>
+                <h5>What Structure Is Being Tested</h5><p>Hypoglossal nerve and nucleus.</p>
+                <h5>Clinical Pearl</h5><p>In an LMN palsy, the tongue deviates <em>toward</em> the side of the lesion (the weak genioglossus can't push it away).</p>
+                <h5>Common Mistakes</h5><p>Confusing the direction of deviation between UMN and LMN patterns.</p>
+              </div>
+
+            </div>
+          </details>
+
+        </div>
+      </div>
+
+      <footer class="site-footer">
+        General bedside reference only &mdash; confirm findings with your attending. See <a href="../CONTRIBUTING.md">CONTRIBUTING.md</a> for how to add to this page. <a href="../index.html">&larr; Back to NeuroBureau home</a>
+      </footer>
+    </main>
+  </div>
+</div>
+
+<script>window.SITE_ROOT = "../";</script>
+<script src="../nav-data.js"></script>
+<script src="../script.js"></script>
+<script>
+(function () {
+  function openTargetChapter() {
+    var id = location.hash.replace('#', '');
+    if (!id) return;
+    var el = document.getElementById(id);
+    if (el && el.tagName.toLowerCase() === 'details') el.open = true;
+    document.querySelectorAll('.wb-toc a').forEach(function (a) {
+      a.classList.toggle('active', a.getAttribute('href') === location.hash);
+    });
+  }
+  window.addEventListener('hashchange', openTargetChapter);
+  window.addEventListener('DOMContentLoaded', openTargetChapter);
+
+  document.querySelectorAll('.wb-toc a').forEach(function (a) {
+    a.addEventListener('click', function () { setTimeout(openTargetChapter, 0); });
+  });
+
+  var wbSearch = document.getElementById('wbSearch');
+  if (wbSearch) {
+    wbSearch.addEventListener('input', function (e) {
+      var q = e.target.value.trim().toLowerCase();
+      document.querySelectorAll('#wbTocList li').forEach(function (li) {
+        li.style.display = li.textContent.toLowerCase().includes(q) ? '' : 'none';
+      });
+    });
+  }
+})();
+</script>
+</body>
+</html>
