@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EEG Workbook — NeuroBureau</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="pager-bar">
+  <div class="pager-bar-inner">
+    <button class="drawer-toggle" id="drawerToggle" aria-label="Open menu">&#9776;</button>
+    <a href="index.html" class="pager-brand"><strong>NEUROBUREAU</strong></a>
+    <div class="pager-screen">
+      <input id="pagerSearch" type="text" placeholder="Search…" autocomplete="off">
+      <span class="pager-cursor"></span>
+    </div>
+  </div>
+</header>
+
+<div class="app-shell">
+  <div class="drawer-scrim" id="drawerScrim"></div>
+  <nav class="sidebar" id="sidebarMount"></nav>
+
+  <div class="main-content">
+    <main class="wrap" style="max-width:1040px;">
+      <a href="index.html" class="back-link">&larr; NeuroBureau home</a>
+      <p class="eyebrow">Neurophysiology &middot; Teaching Module</p>
+      <h1 class="page-title">EEG Workbook</h1>
+      <p class="subtitle">A structured, practical guide to EEG interpretation &mdash; key concepts, patterns, and Natus workflow. Complements (does not replace) textbooks, articles, and hands-on reading. Review this before your EMU rotation, and make sure you have Natus access via <code>uapps.uoflhealth.org</code>.</p>
+      <p class="wb-credit">Developed by Hanah Alley MD, Harshini Sirvisetty, Zach Kolsrud DO, Catarina De Marchi-Assuncao MD &mdash; with EEG contributions from Dr. Evans, Dr. Palade, Dr. Sagi, Dr. Shafer &middot; University of Louisville, Department of Neurology &middot; v1</p>
+
+      <div class="wb-layout">
+        <nav class="wb-toc" id="wbToc">
+          <input class="wb-toc-search" id="wbSearch" type="text" placeholder="Filter chapters…">
+          <p class="wb-toc-label">Chapters</p>
+          <ol id="wbTocList">
+          <li><a href="#ch-workflow">EMU Rotation &amp; Reading Workflow</a></li>
+          <li><a href="#ch-physiology">Basic Physiology</a></li>
+          <li><a href="#ch-equipment">Equipment &amp; the 10-20 System</a></li>
+          <li><a href="#ch-natus">Setting Up in Natus</a></li>
+          <li><a href="#ch-tools">Tools on EEG</a></li>
+          <li><a href="#ch-amplitude">Amplitude</a></li>
+          <li><a href="#ch-frequency">Frequency</a></li>
+          <li><a href="#ch-background">Background &amp; PDR</a></li>
+          <li><a href="#ch-montage">Montage</a></li>
+          <li><a href="#ch-morphology">Morphology</a></li>
+          <li><a href="#ch-symmetry">Symmetry</a></li>
+          <li><a href="#ch-continuity">Continuity</a></li>
+          <li><a href="#ch-timing">Timing</a></li>
+          <li><a href="#ch-rhythmicity">Rhythmicity</a></li>
+          <li><a href="#ch-sleep">Sleep EEG</a></li>
+          <li><a href="#ch-variants">Normal EEG Variants</a></li>
+          <li><a href="#ch-artifacts">Artifacts</a></li>
+          <li><a href="#ch-terminology">Abnormal EEG Terminology</a></li>
+          <li><a href="#ch-epileptiform">Epileptiform Discharges</a></li>
+          <li><a href="#ch-seizure">Seizure &amp; Status Epilepticus</a></li>
+          <li><a href="#ch-pearls">Pearls &amp; Quick Reference</a></li>
+          </ol>
+        </nav>
+
+        <div class="wb-main">
+
+
+    <!-- 1 :: WORKFLOW -->
+    <details class="chapter" id="ch-workflow">
+      <summary><span class="num">01</span> EMU Rotation &amp; Reading Workflow<span class="chev">▸</span></summary>
+      <div class="chapter-body">
+        <h4>Daily Flow</h4>
+        <ul>
+          <li>Come in at 8am. Scrubs are fine.</li>
+          <li>Talk to Amanda/EMU team across the EMU reading room — ask for overnight events and all admissions for the day. Get the new admission's <strong>name, DOB, and arrival time</strong>.</li>
+          <li>Start reading EEGs on your own before rounds.</li>
+          <li>Write Progress Notes on EMU patients — use the "Medicine Progress Note" template, just rename it EMU Progress Note.</li>
+          <li>Discuss priority reads first. Communicate findings with the Gen Neuro/Jewish/Stroke team.</li>
+          <li>Most attendings will have you write the notes — save their dot phrases for their preferred format.</li>
+          <li>Admit patients until 12pm if half-day, until 4pm if whole-day.</li>
+          <li>Check out important items to the Jewish Team, including impending consults. It helps to start the H&amp;P (via Epic notes) for pending admissions and give the Jewish team a heads-up.</li>
+        </ul>
+
+        <h4>What the Attending Will Ask</h4>
+        <ul>
+          <li>A three-liner: reason for admission/consult</li>
+          <li>History of seizures or semiology if possible</li>
+          <li>Current ASMs and sedatives</li>
+          <li>Whether there's any brain imaging</li>
+          <li>What you see on the EEG — mark anything you're curious about</li>
+        </ul>
+        <div class="pearl">
+          <strong>Pearl</strong>
+          
+          <strong>Sample three-liner:</strong> "Mr. Apple is a 55M with known epilepsy, found down, witnessed to have myoclonic movements of his left arm. He's currently on Keppra and Vimpat. CTH showed encephalomalacia in the left occipital lobe. On my review, I saw focal slowing in the left parietal region." (Extend this as your comfort with reading grows.)
+        
+        </div>
+
+        <h4>How to Admit an EMU Patient</h4>
+        <ul>
+          <li>Once the patient is in the building, put in Admission (Bed Slip) orders: <code>Admit to In Patient &gt; Med Surge &gt; Reason: Convulsion</code></li>
+          <li>Enter the EMU Admission Orders (Order Set) — confirm Diet, EEG, Ativan/Diazepam, CBC, CMP, HCG (if female), DVT PPX</li>
+          <li>Chart-check the patient even before they arrive in the building</li>
+          <li>See the patient and ask the admit questions below — no need for an extensive HPI, since they likely already have one in Epic from the referring neurologist</li>
+          <li>Check for any devices (VNS or RNS) that need to be interrogated or turned off</li>
+          <li>After seeing the patient, call the EMU attending to discuss — which ASMs to continue or stop</li>
+          <li>Do the med rec and resume necessary medications</li>
+          <li>Post information on SharePoint and check out to the Jewish Team</li>
+        </ul>
+
+        <h4>What to Ask EMU Admits</h4>
+        <ul>
+          <li>Referring physician</li>
+          <li>Reason for EMU stay</li>
+          <li>Last episode</li>
+          <li>Frequency of this episode</li>
+          <li>Last dose of their ASM</li>
+        </ul>
+      </div>
+    </details>
+
+    <!-- 2 :: PHYSIOLOGY -->
+    <details class="chapter" id="ch-physiology">
+      <summary><span class="num">02</span> Basic Physiology<span class="chev">▸</span></summary>
+      <div class="chapter-body">
+        <ul>
+          <li><strong>Resting membrane potential (~ −70 mV):</strong> the inside of the neuron is negatively charged relative to the outside.</li>
+          <li><strong>Ion movement at rest:</strong> K⁺ moves in, Na⁺ moves out via the Na⁺/K⁺ pump.</li>
+          <li><strong>Action potential:</strong> increased Na⁺ permeability triggers a rapid Na⁺ influx.</li>
+          <li><strong>Depolarization:</strong> Na⁺ channels open, allowing Na⁺ entry until they close.</li>
+          <li><strong>Voltage-dependent channels</strong> open and close based on membrane potential.</li>
+          <li><strong>Time-dependent closure:</strong> Na⁺ channels close automatically after activation.</li>
+          <li><strong>Signal propagation:</strong> depolarization spreads along the membrane via electrotonic conduction.</li>
+          <li><strong>Repolarization:</strong> K⁺ exits, restoring the resting potential.</li>
+          <li><strong>Hyperpolarization:</strong> excess K⁺ efflux may briefly make the membrane more negative than −70 mV.</li>
+          <li><strong>Excitatory signals (EPSPs):</strong> neurotransmitters like ACh and glutamate open Na⁺/Ca²⁺ channels, increasing neuron activity.</li>
+          <li><strong>Inhibitory signals (IPSPs):</strong> GABA opens K⁺/Cl⁻ channels, decreasing neuron activity.</li>
+        </ul>
+
+        <div class="img-card" style="max-width:420px;">
+          <p class="file-title">Action potential: Na⁺ influx drives depolarization; K⁺ efflux drives repolarization and transient hyperpolarization.</p>
+          <img src="images/eeg/physiology-action-potential.jpg" alt="Action potential diagram showing depolarization from Na+ influx and repolarization from K+ efflux, with hyperpolarization overshoot" style="width:100%;">
+        </div>
+
+        <div class="pearl">
+          <strong>Pearl</strong>
+          EEG measures the difference between EPSPs and IPSPs in the extracellular matrix, reflecting the summed electrical activity of cortical neurons.
+        </div>
+        <div class="pearl">
+          <strong>Pearl</strong>
+          Approximately <strong>6 cm²</strong> of cortical surface must be synchronously activated for a discharge to be visible on scalp EEG.
+        </div>
+      </div>
+    </details>
+
+    <!-- 3 :: EQUIPMENT -->
+    <details class="chapter" id="ch-equipment">
+      <summary><span class="num">03</span> Equipment &amp; the 10-20 System<span class="chev">▸</span></summary>
+      <div class="chapter-body">
+        <ul>
+          <li>Electrodes are where electrocortical potentials are conducted and amplified.</li>
+          <li>Each EEG channel displays the <strong>potential difference</strong> between two electrodes.</li>
+          <li>Electrodes are placed using the <strong>10-20 system</strong> — the skull is divided into 10% or 20% increments for electrode placement, keeping positioning consistent across different head shapes and sizes.</li>
+        </ul>
+        <table class="mimic-table">
+          <thead><tr><th>Left</th><th>Brain Area</th><th>Right</th></tr></thead>
+          <tbody>
+            <tr><td>Fp1</td><td>Frontopolar</td><td>Fp2</td></tr>
+            <tr><td>F3</td><td>Frontal</td><td>F4</td></tr>
+            <tr><td>F7</td><td>Anterior Temporal</td><td>F8</td></tr>
+            <tr><td>T3</td><td>Mid Temporal</td><td>T4</td></tr>
+            <tr><td>T5</td><td>Posterior Temporal</td><td>T6</td></tr>
+            <tr><td>C3</td><td>Central</td><td>C4</td></tr>
+            <tr><td>P3</td><td>Parietal</td><td>P4</td></tr>
+            <tr><td>O1</td><td>Occipital</td><td>O2</td></tr>
+            <tr><td colspan="3" style="text-align:center;">Midline: Fz, Cz, Pz</td></tr>
+          </tbody>
+        </table>
+        <p style="font-size:13px;color:var(--text-faint);">Odd numbers = left hemisphere. Even numbers = right hemisphere. Midline electrodes carry a "z" (zero).</p>
+      </div>
+    </details>
+
+    <!-- 4 :: NATUS SETUP -->
+    <details class="chapter" id="ch-natus">
+      <summary><span class="num">04</span> Setting Up in Natus<span class="chev">▸</span></summary>
+      <div class="chapter-body">
+        <h4>Step 1 — Log In</h4>
+        <p>Log in to <code>uapps.uoflhealth.org</code>. Note: <code>uapps.ulh.org</code> will <strong>NOT</strong> have Natus.</p>
+
+        <h4>Step 2 — Open Natus</h4>
+        <p>Click the Natus Database icon. If too many Natus sessions are open at once, yours may not load — text the group to close Natus unless someone else needs it.</p>
+
+        <h4>Step 3 — Find the Study</h4>
+        <p>The default view shows "Today's Studies." Double-click a name to open it.</p>
+        <div class="pearl">
+          <strong>Pearl</strong>
+          Some attendings write their prelim results under "Study Name" — check there first.
+        </div>
+
+        <h4>Step 4 — Confirm Your Settings</h4>
+        <p>Make sure these 5 settings are in place before you start reading:</p>
+        <table class="mimic-table">
+          <tbody>
+            <tr><td><strong>LFF</strong> (Low Frequency Filter)</td><td>Filters out low-frequency activity</td></tr>
+            <tr><td><strong>HFF</strong> (High Frequency Filter)</td><td>Filters out high-frequency activity</td></tr>
+            <tr><td><strong>Notch Filter</strong></td><td>Filters a specific frequency — 60 Hz in North America (outlet electrical fields), 50 Hz elsewhere</td></tr>
+            <tr><td><strong>Sensitivity</strong></td><td>Ratio of input voltage to output, in µV/mm. Lower sensitivity = smaller voltage displayed</td></tr>
+            <tr><td><strong>Time Base</strong></td><td>Horizontal time scale. Usual is 30 mm/sec (30 mm = 1 second). Faster = better for rapid changes; slower = better for slow rhythms</td></tr>
+          </tbody>
+        </table>
+        <p>Try different filter settings and see how the tracing changes.</p>
+
+        <h4>Step 5 — Calibrate</h4>
+        <p><code>Edit &gt; Calibrate &gt; Monitor Display</code>, or change Time Base to 15 mm/sec. You should see 10 seconds per page — dark green gridline to dark green gridline is one second; light green to light green is 0.2 seconds.</p>
+        <div class="img-card">
+          <p class="file-title">Calibration: dark-green-to-dark-green = 1 second; light-green-to-light-green = 0.2 seconds.</p>
+          <img src="images/eeg/calibration.jpg" alt="EEG calibration screen showing one-second and 0.2-second gridline spacing">
+        </div>
+
+        <h4>Step 6 — Scroll Mode</h4>
+        <p>Change "Page" to "Scroll" and press spacebar to watch the EEG move in real time. Adjust playback "Speed" as needed.</p>
+
+        <h4>Step 7 — Review Video</h4>
+        <p>Click the camera icon to watch the patient video for an event. Video can only run 1–2 seconds before distortion and lag set in — don't push it faster than that.</p>
+
+        <h4>Step 8 — Annotate</h4>
+        <p>Press spacebar to pause. Align the red-line marker to the area of interest, type your annotation, and click OK.</p>
+        <div class="warn">As a resident, avoid marking "SEIZURE" or "SZ" — use descriptive text instead. Labeling an event as a seizure in the record can lead others to misinterpret and treat unnecessarily before it's confirmed.</div>
+        <div class="img-card">
+          <p class="file-title">Align the red-line marker to the event before typing the annotation.</p>
+          <img src="images/eeg/annotate.jpg" alt="Annotation dialog aligned to a marked event on the EEG tracing">
+        </div>
+
+        <h4>Step 9 — Save</h4>
+        <p>You <strong>have to</strong> save (<code>Ctrl+S</code>) your annotation for anyone else to see it. When you exit Natus, a "Study Information" box pops up — avoid writing in the big white box, since some attendings use it for their preliminary read. Just click OK, then Yes to save changes.</p>
+
+        <h4>Troubleshooting — Lead Artifact</h4>
+        <p>If you see a messy "green line" contaminating multiple channels, it's likely the ECG lead artifact. Right-click the ECG lead on the left and select "Hide Selected." You can do this for any loose lead — but always tell the EEG tech so they can fix it.</p>
+        <div class="img-card">
+          <p class="file-title">Loose-lead artifact: right-click the offending channel → Hide Selected, and notify the EEG tech.</p>
+          <img src="images/eeg/lead-artifact.jpg" alt="Right-click menu showing Hide Selected option for a loose ECG lead">
+        </div>
+      </div>
+    </details>
+
+    <!-- 5 :: TOOLS -->
+    <details class="chapter" id="ch-tools">
+      <summary><span class="num">05</span> Tools on EEG<span class="chev">▸</span></summary>
+      <div class="chapter-body">
+        <h4>Frequency Tool</h4>
+        <p>Helps describe the frequency composition of a section of tracing. Click the tool, then highlight the area of concern — it generates an FFT power spectrum with peak frequency and relative power in the delta/theta/alpha/beta bands.</p>
+
+        <h4>Waveform Cursors</h4>
+        <p>Help measure the <strong>voltage</strong> of a wave — peak to trough, not peak to baseline. Red marks the peak, blue marks the trough.</p>
+        <table class="mimic-table">
+          <thead><tr><th>Category</th><th>Voltage</th></tr></thead>
+          <tbody>
+            <tr><td>Very Low</td><td>&lt; 20 µV</td></tr>
+            <tr><td>Low</td><td>20–49 µV</td></tr>
+            <tr><td>Medium</td><td>50–149 µV</td></tr>
+            <tr><td>High</td><td>≥ 150 µV</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
+
+    <!-- 6 :: AMPLITUDE -->
+    <details class="chapter" id="ch-amplitude">
+      <summary><span class="num">06</span> Amplitude<span class="chev">▸</span></summary>
+      <div class="chapter-body">
+        <p>Amplitude is the measure of EEG voltage change — the height of a waveform, measured in µV. In practice, it's a proxy for "voltage." Normal adult amplitude ranges from 10–100 µV.</p>
+        <table class="mimic-table">
+          <thead><tr><th>Category</th><th>Voltage</th></tr></thead>
+          <tbody>
+            <tr><td>Very Low</td><td>&lt; 20 µV</td></tr>
+            <tr><td>Low</td><td>20–49 µV</td></tr>
+            <tr><td>Medium</td><td>50–149 µV</td></tr>
+            <tr><td>High</td><td>≥ 150 µV</td></tr>
+          </tbody>
+        </table>
+
+        <div class="fig-row">
+          <div class="img-card">
+          <p class="file-title">Very low amplitude.</p>
+          <img src="images/eeg/amplitude-very-low.jpg" alt="EEG tracing showing very low amplitude activity across all channels">
+        </div>
+          <div class="img-card">
+          <p class="file-title">Moderately disorganized background, 8 Hz PDR, <strong>medium voltage</strong> activity with increased polymorphic delta/theta diffusely.</p>
+          <img src="images/eeg/amplitude-medium.jpg" alt="EEG tracing showing moderately disorganized background with medium voltage activity">
+        </div>
+        </div>
+        <div class="fig-row">
+          <div class="img-card">
+          <p class="file-title">Bursts of <strong>high amplitude</strong> generalized discharges, separated by 1–2 second periods of suppression.</p>
+          <img src="images/eeg/amplitude-high-burst.jpg" alt="EEG tracing showing bursts of high amplitude generalized discharges separated by suppression">
+        </div>
+          <div class="img-card">
+          <p class="file-title">Isoelectric EEG — complete loss of cortical electrical activity, here in the context of anoxic encephalopathy.</p>
+          <img src="images/eeg/amplitude-isoelectric.jpg" alt="Isoelectric flat EEG tracing indicating complete loss of cortical electrical activity">
+        </div>
+        </div>
+      </div>
+    </details>
+
+    <!-- 7 :: FREQUENCY -->
+    <details class="chapter" id="ch-frequency">
+      <summary><span class="num">07</span> Frequency<span class="chev">▸</span></summary>
+      <div class="chapter-body">
+        <p>Frequency describes the number of complete cycles/repetitive waves in one second, measured in Hertz (Hz).</p>
+        <div class="mnemonic">Mnemonic: D-T-A-B → 4 – 8 – 12 – 30</div>
+        <table class="mimic-table">
+          <thead><tr><th>Band</th><th>Range</th><th>Seen In</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Delta</strong></td><td>0–4 Hz</td><td>Slowest frequency. Should not be present in the normal awake brain. Seen in sleep, structural abnormalities, or encephalopathy.</td></tr>
+            <tr><td><strong>Theta</strong></td><td>4–8 Hz</td><td>Seen in drowsiness and in children. Most likely abnormal if it dominates the PDR in a waking adult, or if focal. Hallmark of some normal findings such as Rhythmic Theta of Drowsiness.</td></tr>
+            <tr><td><strong>Alpha</strong></td><td>8–12 Hz</td><td>Seen in normal awake patients over the posterior region; best seen with eyes closed. AKA the Posterior Dominant Rhythm (PDR).</td></tr>
+            <tr><td><strong>Beta</strong></td><td>13–30 Hz</td><td>Seen with benzodiazepines, barbiturates, anesthetics. Also seen in myogenic artifact.</td></tr>
+            <tr><td><strong>Gamma</strong></td><td>&gt; 30 Hz</td><td>—</td></tr>
+          </tbody>
+        </table>
+
+        <h4>Trace and Count</h4>
+        <p>To determine frequency by eye: trace the wave and count how many complete cycles occur in 1 second (use the gridlines from calibration).</p>
+        <div class="img-card">
+          <p class="file-title">Worked examples — bracket one second of tracing and count the cycles inside it (both examples: 8 Hz).</p>
+          <img src="images/eeg/freq-8hz-examples.jpg" alt="Two EEG tracing examples each showing an 8 Hz rhythm with bracketed cycle counts">
+        </div>
+
+        <div class="fig-row">
+          <div class="img-card">
+          <p class="file-title">Delta rhythm: 3 Hz.</p>
+          <img src="images/eeg/freq-delta-3hz.jpg" alt="EEG tracing showing a 3 Hz delta rhythm">
+        </div>
+          <div class="img-card">
+          <p class="file-title">Theta rhythm: 7 Hz.</p>
+          <img src="images/eeg/freq-theta-7hz.jpg" alt="EEG tracing showing a 7 Hz theta rhythm">
+        </div>
+        </div>
+        <div class="fig-row">
+          <div class="img-card">
+          <p class="file-title">Alpha rhythm: 12 Hz.</p>
+          <img src="images/eeg/freq-alpha-12hz.jpg" alt="EEG tracing showing a 12 Hz alpha rhythm with eye closure">
+        </div>
+          <div class="img-card">
+          <p class="file-title">Beta rhythm: ~15 Hz.</p>
+          <img src="images/eeg/freq-beta-15hz.jpg" alt="EEG tracing showing a beta rhythm around 15 Hz">
+        </div>
+        </div>
+        <div class="img-card" style="max-width:600px;">
+          <p class="file-title">Sharp alpha — a normal-variant morphology worth recognizing so it isn't over-called as epileptiform.</p>
+          <img src="images/eeg/freq-sharp-alpha.jpg" alt="EEG tracing showing a sharply contoured alpha rhythm with waveform cursor measurement" style="width:100%;">
+        </div>
+      </div>
+    </details>
+
+    <!-- 8 :: BACKGROUND / PDR -->
+    <details class="chapter" id="ch-background">
+      <summary><span class="num">08</span> Background Activity &amp; PDR<span class="chev">▸</span></summary>
+      <div class="chapter-body">
+        <h4>Posterior Dominant "Alpha" Rhythm (PDR)</h4>
+        <ul>
+          <li>Rhythmic activity seen at the occipital or parietal regions</li>
+          <li>Predominantly present during wakefulness while the eyes are closed</li>
+          <li>Usually in the alpha frequency band in a healthy adult</li>
+          <li>Wait <strong>&gt; 1 second</strong> after eye closure before determining the frequency</li>
+        </ul>
+        <div class="img-card">
+          <p class="file-title">Posterior dominant alpha rhythm, ~8 Hz, emerging after eye closure.</p>
+          <img src="images/eeg/pdr-alpha-eye-closure.jpg" alt="EEG tracing showing an 8 Hz posterior dominant alpha rhythm emerging after eye closure" style="max-width:520px; margin:0 auto; display:block;">
+        </div>
+      </div>
+    </details>
+
+    <!-- 9 :: MONTAGE -->
+    <details class="chapter" id="ch-montage">
+      <summary><span class="num">09</span> Montage<span class="chev">▸</span></summary>
+      <div class="chapter-body">
+        <p>An EEG montage is the map or pattern used to connect scalp electrodes to the EEG machine — it defines which electrodes are compared to which to record brain wave activity.</p>
+
+        <h4>1. Bipolar Montage</h4>
+        <ul>
+          <li>Each channel compares two <strong>neighboring</strong> electrodes (e.g., Fp1–F3, F3–C3)</li>
+          <li>Useful for <strong>localizing</strong> abnormalities via phase reversals — a phase reversal occurs when two adjacent electrodes pick up electrical activity that is out of sync, so the waveforms deflect in opposite directions (one up, one down)</li>
+          <li><strong>Example:</strong> Double banana — a common bipolar setup that curves like bananas over each hemisphere</li>
+        </ul>
+
+        <h4>2. Referential Montage</h4>
+        <ul>
+          <li>Each electrode is compared to a <strong>common reference</strong> (e.g., A1 or Cz)</li>
+          <li>Good for amplitude comparison</li>
+          <li>Easier to spot generalized vs. focal activity</li>
+        </ul>
+
+        <div class="img-card" style="max-width:480px;">
+          <p class="file-title">Double banana bipolar montage — chains curve over each hemisphere from frontopolar to occipital.</p>
+          <img src="images/eeg/montage-diagram.jpg" alt="Head diagram showing double banana bipolar montage chain over each hemisphere with 10-20 electrode positions" style="width:100%;">
+        </div>
+      </div>
+    </details>
+
+    <!-- 10 :: MORPHOLOGY -->
+    <details class="chapter" id="ch-morphology">
+      <summary><span class="num">10</span> Morphology<span class="chev">▸</span></summary>
+      <div class="chapter-body">
+        <p>Morphology refers to the shape and physical characteristics of the EEG waves — described as <strong>monomorphic</strong> or <strong>polymorphic</strong>.</p>
+        <div class="img-card" style="max-width:600px;">
+          <p class="file-title">Monomorphic: waves are about the same frequency and amplitude throughout.</p>
+          <img src="images/eeg/morphology-monomorphic.jpg" alt="EEG tracing showing monomorphic waves of consistent frequency and amplitude" style="width:100%;">
+        </div>
+        <div class="img-card">
+          <p class="file-title">GPDs with triphasic morphology — sit on the ictal–interictal continuum.</p>
+          <img src="images/eeg/morphology-gpd-triphasic.jpg" alt="EEG tracing showing generalized periodic discharges with triphasic morphology">
+        </div>
+        <div class="img-card">
+          <p class="file-title">Polymorphic delta activity — variable frequency and amplitude within the delta band.</p>
+          <img src="images/eeg/morphology-polymorphic-delta.jpg" alt="EEG tracing showing polymorphic delta activity">
+        </div>
+      </div>
+    </details>
+
+    <!-- 11 :: SYMMETRY -->
+    <details class="chapter" id="ch-symmetry">
+      <summary><span class="num">11</span> Symmetry<span class="chev">▸</span></summary>
+      <div class="chapter-body">
+        <p>Symmetry describes approximately equal amplitude, frequency, and form of EEG activity over homologous areas on opposite sides of the head.</p>
+        <ul>
+          <li><strong>Right hemisphere</strong> = red lines = even electrode numbers</li>
+          <li><strong>Left hemisphere</strong> = blue lines = odd electrode numbers</li>
+          <li>Compare Fp2-F8 (right) with Fp1-F7 (left); compare Fp2-F4 (right) with Fp1-F3 (left)</li>
+        </ul>
+        <div class="img-card">
+          <p class="file-title">Right hemisphere channels in red, left hemisphere in blue — compare homologous pairs.</p>
+          <img src="images/eeg/symmetry-diagram.jpg" alt="EEG tracing with head diagram inset showing red right-hemisphere and blue left-hemisphere channel color coding">
+        </div>
+
+        <h4>Categorize As</h4>
+        <table class="mimic-table">
+          <tbody>
+            <tr><td><strong>Symmetric</strong></td><td>e.g., Fp1-F3 looks the same as Fp2-F4</td></tr>
+            <tr><td><strong>Mild asymmetry</strong></td><td>Consistent asymmetry &lt; 50% voltage, or 0.5–1 Hz frequency difference</td></tr>
+            <tr><td><strong>Marked asymmetry</strong></td><td>≥ 50% voltage difference, or &gt; 1 Hz frequency difference</td></tr>
+          </tbody>
+        </table>
+        <p>You can eyeball symmetry, but for accuracy use the <strong>Waveform Cursor</strong> tool to measure the voltage difference directly.</p>
+        <div class="img-card">
+          <p class="file-title">Marked asymmetry — more than 50% voltage difference and more than 1 Hz frequency difference between homologous channels.</p>
+          <img src="images/eeg/symmetry-marked-asymmetry.jpg" alt="EEG tracing with waveform cursor measurements showing marked voltage asymmetry between hemispheres">
+        </div>
+        <div class="img-card">
+          <p class="file-title">Eyeballing symmetry in an average montage.</p>
+          <img src="images/eeg/symmetry-avg-montage.jpg" alt="EEG tracing in average montage used to eyeball symmetry" style="max-width:640px;">
+        </div>
+      </div>
+    </details>
+
+    <!-- 12 :: CONTINUITY -->
+    <details class="chapter" id="ch-continuity">
+      <summary><span class="num">12</span> Continuity<span class="chev">▸</span></summary>
+      <div class="chapter-body">
+        <table class="mimic-table">
+          <tbody>
+            <tr><td><strong>Continuous</strong></td><td>&lt; 1% of the record shows attenuation/suppression</td></tr>
+            <tr><td><strong>Nearly continuous</strong></td><td>Continuous but with occasional (1–9%) periods of attenuation/suppression &gt; 1 second</td></tr>
+            <tr><td><strong>Discontinuous</strong></td><td>Attenuation/suppression alternating with higher-voltage activity; 10–49% of the record is attenuation/suppression</td></tr>
+            <tr><td><strong>Burst-attenuation</strong></td><td>50–99% of the record is attenuation/suppression</td></tr>
+          </tbody>
+        </table>
+        <div class="pearl">
+          <strong>Pearl</strong>
+          How to eyeball: a page shows 10 seconds. Estimate the percentage for one page first, then extend that impression across the full study.
+        </div>
+        <div class="img-card">
+          <p class="file-title">Continuous vs. discontinuous vs. bursts, side by side.</p>
+          <img src="images/eeg/continuity-three-panel.jpg" alt="Three stacked EEG tracing panels comparing continuous, discontinuous, and burst patterns">
+        </div>
+      </div>
+    </details>
+
+    <!-- 13 :: TIMING -->
+    <details class="chapter" id="ch-timing">
+      <summary><span class="num">13</span> Timing<span class="chev">▸</span></summary>
+      <div class="chapter-body">
+        <p>Timing describes the temporal relationship of discharges across different regions.</p>
+        <ul>
+          <li><strong>Synchronous:</strong> discharges occurring at two regions simultaneously</li>
+          <li><strong>Asynchronous:</strong> discharges occur independently of one another</li>
+        </ul>
+        <div class="img-card">
+          <p class="file-title">Synchronous — the discharge appears in the left and right frontal regions at the same time.</p>
+          <img src="images/eeg/timing-synchronous.jpg" alt="EEG tracing showing a synchronous discharge appearing simultaneously in left and right frontal regions" style="max-width:480px; margin:0 auto; display:block;">
+        </div>
+      </div>
+    </details>
+
+    <!-- 14 :: RHYTHMICITY -->
+    <details class="chapter" id="ch-rhythmicity">
+      <summary><span class="num">14</span> Rhythmicity<span class="chev">▸</span></summary>
+      <div class="chapter-body">
+        <p>Rhythmicity describes recurring waves of equal duration.</p>
+        <ul>
+          <li><strong>Regular:</strong> uniform — individual waves are consistent in shape and duration</li>
+          <li><strong>Irregular:</strong> not uniform, but still has <em>some</em> underlying rhythm that can vary over time</li>
+          <li><strong>Arrhythmic:</strong> waves of unequal duration and shape — no consistent pattern at all</li>
+        </ul>
+        <div class="img-card">
+          <p class="file-title">Regular (top) vs. irregular (middle) vs. arrhythmic (bottom) patterns.</p>
+          <img src="images/eeg/rhythmicity-chart.jpg" alt="Three stacked waveform plots comparing regular, irregular, and arrhythmic EEG patterns">
+        </div>
+      </div>
+    </details>
+
+    <!-- 15 :: SLEEP EEG -->
+    <details class="chapter" id="ch-sleep">
+      <summary><span class="num">15</span> Sleep EEG<span class="chev">▸</span></summary>
+      <div class="chapter-body">
+        <h4>Stage 1</h4>
+        <p>Drowsiness — fewer eye blinks, slow eye-roving movements — with loss of the PDR. Marked by POSTS and Vertex Waves.</p>
+        <ul>
+          <li><strong>POSTS</strong> (Positive Occipital Sharp Transients of Sleep): sharp, transient waves maximal at the occipital regions, single or repetitive, generally &lt; 50 µV</li>
+          <li><strong>Vertex Waves:</strong> sharply contoured waves maximal at the vertex, can occur in response to sensory (e.g., auditory) stimulus, rarely &gt; 250 µV</li>
+        </ul>
+        <div class="pearl">
+          <strong>Pearl</strong>
+          Focal spikes or sharp waves are more often seen during Stage 1 and Stage 2 of sleep — don't miss them by assuming sleep tracings are "quiet."
+        </div>
+        <div class="fig-row">
+          <div class="img-card">
+          <p class="file-title">Stage 1 — short run of vertex waves.</p>
+          <img src="images/eeg/sleep-stage1-short-vertex.jpg" alt="Stage 1 sleep EEG showing a short run of vertex waves">
+        </div>
+          <div class="img-card">
+          <p class="file-title">Stage 1 — large vertex waves.</p>
+          <img src="images/eeg/sleep-stage1-large-vertex.jpg" alt="Stage 1 sleep EEG showing large vertex waves">
+        </div>
+        </div>
+        <div class="img-card" style="max-width:640px;">
+          <p class="file-title">Stage 1 — vertex waves.</p>
+          <img src="images/eeg/sleep-stage1-vertex-waves.jpg" alt="Stage 1 sleep EEG with a run of vertex waves and a burst of rhythmic temporal activity" style="width:100%;">
+        </div>
+
+        <h4>Stage 2</h4>
+        <p>Sleep marked by K Complexes and Sleep Spindles, with loss of the PDR.</p>
+        <ul>
+          <li><strong>K Complex:</strong> a negative sharp wave, often associated with a sleep spindle</li>
+          <li><strong>Sleep Spindle:</strong> 11–16 Hz activity lasting &gt; 0.5 s, maximal at the central regions</li>
+        </ul>
+        <div class="fig-row">
+          <div class="img-card">
+          <p class="file-title">Stage 2 — sleep spindles.</p>
+          <img src="images/eeg/sleep-stage2-spindles.jpg" alt="Stage 2 sleep EEG showing sleep spindles">
+        </div>
+          <div class="img-card">
+          <p class="file-title">Stage 2 — K complex with sleep spindles.</p>
+          <img src="images/eeg/sleep-stage2-kcomplex-spindles.jpg" alt="Stage 2 sleep EEG showing a K complex with sleep spindles">
+        </div>
+        </div>
+
+        <h4>Stage 3 (Deep Sleep) &amp; Stage 4</h4>
+        <ul>
+          <li><strong>Stage 3:</strong> more delta (20–50% of the recording)</li>
+          <li><strong>Stage 4:</strong> delta-predominant (&gt; 50% of the recording); vertex waves and spindles are often absent</li>
+        </ul>
+        <div class="img-card" style="max-width:640px;">
+          <p class="file-title">Stage 3 — delta waves of sleep.</p>
+          <img src="images/eeg/sleep-stage3-delta.jpg" alt="Stage 3 sleep EEG showing prominent delta waves" style="width:100%;">
+        </div>
+
+        <h4>REM</h4>
+        <ul>
+          <li>Rapid eye movement</li>
+          <li>Low-voltage, fast background</li>
+          <li>Hypotonia on submental (chin) EMG</li>
+        </ul>
+      </div>
+    </details>
+
+    <!-- 16 :: NORMAL VARIANTS -->
+    <details class="chapter" id="ch-variants">
+      <summary><span class="num">16</span> Normal EEG Variants<span class="chev">▸</span></summary>
+      <div class="chapter-body">
+        <h4>Mu Rhythm</h4>
+        <ul>
+          <li>Seen in the waking state</li>
+          <li>About 8–10 Hz</li>
+          <li>Occurs over the central or centroparietal regions</li>
+          <li>Attenuated by thought or actual movement, especially of the contralateral limb</li>
+        </ul>
+        <div class="fig-row">
+          <div class="img-card">
+          <p class="file-title">Mu rhythm, ~8–10 Hz, central/centroparietal.</p>
+          <img src="images/eeg/mu-rhythm.jpg" alt="EEG tracing showing Mu rhythm over central regions">
+        </div>
+          <div class="img-card">
+          <p class="file-title">Mu rhythm in average montage.</p>
+          <img src="images/eeg/mu-rhythm-average-montage.jpg" alt="EEG tracing showing Mu rhythm in average montage">
+        </div>
+        </div>
+
+        <h4>Wicket Spikes</h4>
+        <ul>
+          <li>Seen in drowsiness and light sleep</li>
+          <li>More common in older patients</li>
+          <li>Spike-like monophasic surface-negative single waves or trains of waves over the temporal regions</li>
+          <li>Can be seen in patients with epilepsy — don't over-call these as epileptiform</li>
+        </ul>
+        <div class="fig-row">
+          <div class="img-card">
+          <p class="file-title">Left temporal wickets.</p>
+          <img src="images/eeg/wicket-spikes-left-temporal.jpg" alt="EEG tracing showing left temporal wicket spikes">
+        </div>
+          <div class="img-card">
+          <p class="file-title">Wicket spikes — another example.</p>
+          <img src="images/eeg/wicket-spikes-example2.jpg" alt="EEG tracing showing another example of wicket spikes">
+        </div>
+        </div>
+      </div>
+    </details>
+
+    <!-- 17 :: ARTIFACTS -->
+    <details class="chapter" id="ch-artifacts">
+      <summary><span class="num">17</span> Artifacts<span class="chev">▸</span></summary>
+      <div class="chapter-body">
+        <h4>Chewing</h4>
+        <p>Periodic high-amplitude activity in the frontotemporal regions that correlates with the patient on video. Note the lack of evolution — a key differentiator from a true seizure pattern.</p>
+        <div class="img-card">
+          <p class="file-title">Chewing artifact — periodic, high-amplitude, frontotemporal, no evolution.</p>
+          <img src="images/eeg/artifact-chewing.jpg" alt="EEG tracing showing periodic high amplitude chewing artifact in frontotemporal channels">
+        </div>
+
+        <h4>Looking Left / Eye Movement</h4>
+        <p>Eye movement produces characteristic deflections in the frontal leads (the eye acts as a dipole) — recognize this pattern so it isn't mistaken for frontal slowing.</p>
+        <div class="img-card">
+          <p class="file-title">Eye-movement artifact from looking left.</p>
+          <img src="images/eeg/artifact-looking-left.jpg" alt="EEG tracing showing eye movement artifact in frontal leads during leftward gaze">
+        </div>
+
+        <h4>Pulse Artifact</h4>
+        <p>Rhythmic artifact time-locked to the cardiac cycle, usually from an electrode positioned near a pulsating vessel.</p>
+        <div class="img-card">
+          <p class="file-title">Pulse artifact — time-locked to the ECG trace below.</p>
+          <img src="images/eeg/artifact-pulse.jpg" alt="EEG tracing showing pulse artifact at electrode T4 time-locked to the ECG">
+        </div>
+      </div>
+    </details>
+
+    <!-- 18 :: TERMINOLOGY -->
+    <details class="chapter" id="ch-terminology">
+      <summary><span class="num">18</span> Abnormal EEG Terminology<span class="chev">▸</span></summary>
+      <div class="chapter-body">
+        <p>In general, describing an abnormal EEG combines terms from <strong>Main Term A</strong> + <strong>Main Term B</strong> + <strong>Modifiers</strong>.</p>
+        <table class="mimic-table">
+          <thead><tr><th>Main Term A</th><th>Main Term B</th><th>Modifiers</th></tr></thead>
+          <tbody>
+            <tr>
+              <td>Generalized · Lateralized · Bilateral Independent · Unilateral Independent · Multifocal</td>
+              <td>Periodic Discharges · Rhythmic Delta Activity · Spike and Wave · Sharp and Wave</td>
+              <td>Prevalence · Duration · Frequency · Sharpness · Voltage (amplitude) · Stimulus-induced or -terminated · Evolution</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="img-card">
+          <p class="file-title">Example description: right sharps and right frontotemporal parietal intermittent arrhythmic delta.</p>
+          <img src="images/eeg/epileptiform-example.jpg" alt="EEG tracing showing right-sided sharp waves and right frontotemporoparietal intermittent arrhythmic delta activity">
+        </div>
+      </div>
+    </details>
+
+    <!-- 19 :: EPILEPTIFORM DISCHARGES -->
+    <details class="chapter" id="ch-epileptiform">
+      <summary><span class="num">19</span> Epileptiform Discharges<span class="chev">▸</span></summary>
+      <div class="chapter-body">
+        <h4>Spikes and Sharps</h4>
+        <ul>
+          <li><strong>Spike:</strong> transient, pointed peak, 20–70 ms</li>
+          <li><strong>Sharp:</strong> transient, pointed peak, 70–200 ms</li>
+          <li><strong>Polyspike:</strong> two or more spikes in a row, lasting &lt; 0.5 seconds. If &gt; 0.5 seconds, it qualifies as a BIRD (Brief Potentially Ictal Rhythmic Discharge)</li>
+        </ul>
+
+        <h4>Prevalence</h4>
+        <table class="mimic-table">
+          <tbody>
+            <tr><td><strong>Abundant</strong></td><td>&gt; 1 per 10 seconds, but not periodic</td></tr>
+            <tr><td><strong>Frequent</strong></td><td>&gt; 1 per minute but &lt; 1 per 10 seconds</td></tr>
+            <tr><td><strong>Occasional</strong></td><td>&gt; 1 per hour but &lt; 1 per minute</td></tr>
+            <tr><td><strong>Rare</strong></td><td>&lt; 1 per hour</td></tr>
+          </tbody>
+        </table>
+        <div class="pearl">
+          <strong>Pearl</strong>
+          Memorize the prevalence cutoffs — they show up constantly in reports and rounding language.
+        </div>
+
+        <div class="img-card">
+          <p class="file-title">Generalized spike-and-wave discharges.</p>
+          <img src="images/eeg/generalized-spike-wave.jpg" alt="EEG tracing showing a burst of generalized spike and wave discharges">
+        </div>
+
+        <h4>Burst Suppression Pattern</h4>
+        <ul>
+          <li>Alternating bursts of theta and/or delta waves (often with sharp or fast activity) and periods of suppression (amplitude &lt; 10 µV)</li>
+          <li>Suppression phases occupy more than 50% of the recording</li>
+          <li>Indicates severe brain dysfunction, or may be seen with certain anesthetic agents at deep sedation</li>
+          <li><strong>Burst suppression with identical bursts</strong> following anoxic brain injury is associated with a poor neurological prognosis</li>
+        </ul>
+        <div class="img-card">
+          <p class="file-title">Burst suppression pattern.</p>
+          <img src="images/eeg/burst-suppression.jpg" alt="EEG tracing showing burst suppression pattern with alternating bursts and periods of suppression">
+        </div>
+
+        <h4>Triphasic Waves</h4>
+        <p>High-amplitude (&gt; 70 µV) positive sharp transients with preceding and following lower-amplitude negative waves. The first negative deflection is usually smaller and steeper than the one that follows the positive wave.</p>
+        <ul>
+          <li>Bilateral, showing an antero-posterior or postero-anterior phase lag</li>
+          <li>Occur at ~1–2 Hz</li>
+          <li>Seen in runs, often with low-amplitude or absent background activity (&lt; 40 µV) in between</li>
+          <li>Can change with arousal or noxious stimuli (regress or increase)</li>
+          <li>Most often seen in comatose patients with metabolic encephalopathy</li>
+          <li>Tend to reduce with sleep or IV benzodiazepines</li>
+        </ul>
+      </div>
+    </details>
+
+    <!-- 20 :: SEIZURE -->
+    <details class="chapter" id="ch-seizure">
+      <summary><span class="num">20</span> Seizure &amp; Status Epilepticus<span class="chev">▸</span></summary>
+      <div class="chapter-body">
+        <h4>Electrographic Seizure</h4>
+        <p>Epileptiform discharges averaging &gt; 2.5 Hz for &gt; 10 seconds (&gt; 25 discharges in 10 seconds), <strong>OR</strong> any pattern with definite evolution lasting &gt; 10 seconds.</p>
+
+        <h4>Electroclinical Seizure</h4>
+        <p>A definite clinical correlate (time-locked) to the EEG pattern, of any duration — EEG <strong>and</strong> clinical improvement with an ASM.</p>
+
+        <h4>Electroclinical Status Epilepticus</h4>
+        <ul>
+          <li>Electroclinical seizure for &gt; 10 continuous minutes, <strong>OR</strong> &gt; 20% of any 60-minute period</li>
+          <li>Ongoing electrographic seizures with bilateral tonic-clonic activity &gt; 5 minutes</li>
+        </ul>
+
+        <h4>Ictal-Interictal Continuum (IIC)</h4>
+        <p>Synonymous with "possible electrographic seizure" but is not itself a diagnosis — doesn't meet seizure criteria, but there is a reasonable chance it's contributing to impaired alertness.</p>
+        <div class="pearl">
+          <strong>Pearl</strong>
+          Recommended reading: <em>Understanding and Managing the Ictal-Interictal Continuum in Neurocritical Care</em> by Sivaraju et al. Discuss borderline IIC cases with the Epilepsy attending.
+        </div>
+
+        <div class="img-card">
+          <p class="file-title">Electrographic seizure pattern.</p>
+          <img src="images/eeg/seizure-example1.jpg" alt="EEG tracing showing a seizure pattern">
+        </div>
+        <div class="img-card">
+          <p class="file-title">Unresponsive patient in NCSE — note the evolution of discharges from the right temporoparietal region, lasting at least 10 seconds with evolution, meeting seizure criteria.</p>
+          <img src="images/eeg/seizure-ncse-evolution.jpg" alt="EEG tracing showing evolving discharges in a patient with nonconvulsive status epilepticus" style="max-width:640px;">
+        </div>
+
+        <h4>Worked Example — Evolution in Real Time</h4>
+        <div class="img-card">
+          <p class="file-title"><strong>Part 1:</strong> compare the two bracketed segments — note the evolution of the discharges. Seizure activity appears to originate from the occipital region (red arrow).</p>
+          <img src="images/eeg/seizure-part1.jpg" alt="Part 1 of an evolving seizure — early rhythmic activity originating from the occipital region">
+        </div>
+        <div class="img-card">
+          <p class="file-title"><strong>Part 2:</strong> generalized discharges. Note the heart rate (ECG) does not change — this patient was responsive but had isolated right gaze deviation.</p>
+          <img src="images/eeg/seizure-part2.jpg" alt="Part 2 of an evolving seizure showing generalized discharges without heart rate change">
+        </div>
+        <div class="img-card">
+          <p class="file-title"><strong>Part 3:</strong> after the seizure.</p>
+          <img src="images/eeg/seizure-part3.jpg" alt="Part 3 showing the EEG after the seizure has ended">
+        </div>
+      </div>
+    </details>
+
+    <!-- 21 :: PEARLS -->
+    <details class="chapter" id="ch-pearls">
+      <summary><span class="num">21</span> Pearls &amp; Quick Reference<span class="chev">▸</span></summary>
+      <div class="chapter-body">
+        <h4>Memorize</h4>
+        <ul class="checklist">
+          <li>EEG measures the difference between EPSPs and IPSPs in the extracellular matrix — the summed activity of cortical neurons.</li>
+          <li>~6 cm² of cortical surface must be synchronously activated to generate a visible discharge.</li>
+          <li>Frequency bands (D-T-A-B): Delta 0–4, Theta 4–8, Alpha 8–12, Beta 13–30, Gamma &gt; 30 Hz.</li>
+          <li>Amplitude categories: Very Low &lt; 20 µV, Low 20–49, Medium 50–149, High ≥ 150 µV.</li>
+          <li>Wait &gt; 1 second after eye closure before reading PDR frequency.</li>
+          <li>Symmetry: mild asymmetry &lt; 50% voltage or 0.5–1 Hz; marked asymmetry ≥ 50% voltage or &gt; 1 Hz.</li>
+          <li>Prevalence: Abundant &gt; 1/10sec, Frequent &gt; 1/min, Occasional &gt; 1/hr, Rare &lt; 1/hr.</li>
+          <li>Electrographic seizure: &gt; 2.5 Hz for &gt; 10 sec, OR definite evolution &gt; 10 sec.</li>
+          <li>Never annotate "SEIZURE" or "SZ" as a resident — describe findings instead.</li>
+          <li>Always save (Ctrl+S) annotations, and never write in the white box on exit.</li>
+        </ul>
+
+        <h4>Before You Start Reading — Checklist</h4>
+        <ul class="checklist">
+          <li>Confirmed Natus access via uapps.uoflhealth.org</li>
+          <li>LFF, HFF, Notch, Sensitivity, and Time Base all set correctly</li>
+          <li>Calibrated the display (10 sec/page, gridlines confirmed)</li>
+          <li>Checked for loose leads / lead artifact before reading</li>
+          <li>Reviewed patient's ASMs, sedatives, and imaging before reading</li>
+          <li>Prepared a three-liner for the attending</li>
+        </ul>
+      </div>
+    </details>
+
+  
+        </div>
+      </div>
+
+      <footer class="site-footer">
+        Adapted from the University of Louisville Department of Neurology's internal EEG teaching workbook (Alley, Sirvisetty, Kolsrud, De Marchi-Assuncao &mdash; v1, Apr 2025), with EEG contributions from Dr. Evans, Dr. Palade, Dr. Sagi, and Dr. Shafer. EEG tracings shown are deidentified studies used for internal teaching. Suggested reading: <em>Atlas of EEG and Seizure Semiology</em> (Abou-Khalil &amp; Misulis); Kane et al., <em>A revised glossary of terms most commonly used by clinical electroencephalographers</em>, Clin Neurophysiol Pract 2017; <em>Rowan's Primer of EEG</em>; learningeeg.com. See <a href="CONTRIBUTING.md">CONTRIBUTING.md</a> for how to add to this page.
+      </footer>
+    </main>
+  </div>
+</div>
+
+<script>window.SITE_ROOT = "";</script>
+<script src="nav-data.js"></script>
+<script src="script.js"></script>
+<script>
+(function () {
+  function openTargetChapter() {
+    var id = location.hash.replace('#', '');
+    if (!id) return;
+    var el = document.getElementById(id);
+    if (el && el.tagName.toLowerCase() === 'details') el.open = true;
+    document.querySelectorAll('.wb-toc a').forEach(function (a) {
+      a.classList.toggle('active', a.getAttribute('href') === location.hash);
+    });
+  }
+  window.addEventListener('hashchange', openTargetChapter);
+  window.addEventListener('DOMContentLoaded', openTargetChapter);
+
+  document.querySelectorAll('.wb-toc a').forEach(function (a) {
+    a.addEventListener('click', function () { setTimeout(openTargetChapter, 0); });
+  });
+
+  var wbSearch = document.getElementById('wbSearch');
+  if (wbSearch) {
+    wbSearch.addEventListener('input', function (e) {
+      var q = e.target.value.trim().toLowerCase();
+      document.querySelectorAll('#wbTocList li').forEach(function (li) {
+        li.style.display = li.textContent.toLowerCase().includes(q) ? '' : 'none';
+      });
+    });
+  }
+})();
+</script>
+</body>
+</html>

@@ -843,3 +843,108 @@ html, body { overflow-x: hidden; max-width: 100%; }
   .pager-bar-inner { flex-wrap: wrap; padding: 10px 14px; row-gap: 8px; }
   .pager-screen { flex-basis: 100%; order: 3; }
 }
+
+/* ============================================================
+   EEG WORKBOOK — collapsible chapters + in-page sticky TOC
+   ============================================================ */
+
+.wb-credit { font-size: 12px; color: var(--faint); margin-top: 6px; }
+
+.wb-layout {
+  display: grid;
+  grid-template-columns: 230px 1fr;
+  gap: 28px;
+  align-items: start;
+  margin-top: 24px;
+}
+
+.wb-toc {
+  position: sticky;
+  top: 76px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 14px;
+  background: var(--panel);
+  max-height: calc(100vh - 100px);
+  overflow-y: auto;
+}
+.wb-toc-search {
+  width: 100%;
+  background: #050a0d;
+  border: 1px solid var(--pager-green-dim);
+  border-radius: var(--radius);
+  padding: 7px 10px;
+  color: var(--pager-green);
+  font-family: var(--mono);
+  font-size: 12.5px;
+  margin-bottom: 10px;
+}
+.wb-toc-label {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--faint);
+  margin: 0 0 8px;
+}
+.wb-toc ol { list-style: none; margin: 0; padding: 0; counter-reset: wbchap; }
+.wb-toc li { counter-increment: wbchap; }
+.wb-toc a {
+  display: block;
+  font-size: 12.5px;
+  color: var(--muted);
+  text-decoration: none;
+  padding: 5px 6px;
+  border-radius: 3px;
+  line-height: 1.4;
+}
+.wb-toc a::before {
+  content: counter(wbchap, decimal-leading-zero) " ";
+  font-family: var(--mono);
+  color: var(--faint);
+  margin-right: 2px;
+}
+.wb-toc a:hover { color: var(--paper); background: var(--panel-raised); }
+.wb-toc a.active { color: var(--pager-green); background: var(--panel-raised); }
+
+.chapter {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  margin-bottom: 10px;
+  background: var(--panel);
+  overflow: hidden;
+}
+.chapter summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--mono);
+  font-size: 14.5px;
+  color: var(--paper);
+}
+.chapter summary::-webkit-details-marker { display: none; }
+.chapter summary .num { color: var(--faint); font-size: 12px; }
+.chapter summary .chev { margin-left: auto; color: var(--faint); transition: transform 0.15s ease; }
+.chapter[open] summary .chev { transform: rotate(90deg); }
+.chapter[open] summary { border-bottom: 1px solid var(--line); }
+.chapter-body { padding: 16px 18px 20px; }
+.chapter-body h4 {
+  font-family: var(--mono);
+  font-size: 12.5px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--pager-green);
+  margin: 18px 0 8px;
+}
+.chapter-body h4:first-child { margin-top: 0; }
+.chapter-body ul, .chapter-body ol { margin: 0 0 12px; padding-left: 20px; }
+.chapter-body li { margin-bottom: 6px; font-size: 14px; }
+.chapter-body p { font-size: 14px; margin: 0 0 12px; }
+
+@media (max-width: 860px) {
+  .wb-layout { grid-template-columns: 1fr; }
+  .wb-toc { position: static; max-height: none; }
+}
